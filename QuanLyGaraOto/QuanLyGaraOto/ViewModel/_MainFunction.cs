@@ -20,10 +20,10 @@ namespace QuanLyGaraOto.ViewModel
             {
                 return false;
             }
-            //foreach (CAR_BRAND brand in list)
-            //{
-            //    if (brand.CarBrand_Name == name) return false;
-            //}
+            foreach (CAR_BRAND brand in list)
+            {
+                if (brand.CarBrand_Name == name) return false;
+            }
             return true;
         }
         public bool checkValueSupplies(string name, string price, 
