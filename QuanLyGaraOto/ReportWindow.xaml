@@ -1,0 +1,318 @@
+﻿<UserControl x:Class="QuanLyGaraOto.ReportWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:QuanLyGaraOto"
+        mc:Ignorable="d"
+        Background="White"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+     
+        Name="reportWindow"
+        DataContext="{StaticResource ReportVM}"
+       Height="450" Width="1200">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="60"/>
+            <RowDefinition Height="60"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0" 
+              Margin="15 0 15 10"
+              Background="{StaticResource MainColor}"
+              >
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Grid Grid.Column="0">
+                <TextBlock 
+                   Text="Thống kê"
+                    VerticalAlignment="Center"
+                    HorizontalAlignment="Left"
+                    Margin="15 0 5 0"            
+                    FontSize="30"
+                    Foreground="White"
+                   FontWeight="Bold"
+                    ></TextBlock>
+            </Grid>
+        </Grid>
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <StackPanel Grid.Column="0" Orientation="Horizontal">
+                <ComboBox
+                x:Name="cb_SelectYear"
+                materialDesign:HintAssist.Hint="Năm"
+                HorizontalAlignment="Left"
+                HorizontalContentAlignment="Left"
+                VerticalContentAlignment="Center"
+                FontSize="16"
+                FontWeight="Medium"
+                Margin="20,0,0,0"
+                Width="160"
+                
+                ItemsSource="{Binding ItemSource_Year}" 
+                SelectedItem="{Binding First_item_year}"
+                Text="{Binding First_item_year}">
+                    <i:Interaction.Triggers>
+                        <i:EventTrigger EventName="SelectionChanged">
+                            <i:InvokeCommandAction Command="{Binding YearChangedCommand}" 
+                                               CommandParameter="{Binding ElementName=reportWindow}"/>
+                        </i:EventTrigger>
+
+                        <i:EventTrigger EventName="Loaded">
+                            <i:InvokeCommandAction Command="{Binding LoadCbCommand}" 
+                                               CommandParameter="{Binding ElementName=reportWindow}"/>
+                        </i:EventTrigger>
+                    </i:Interaction.Triggers>
+
+                </ComboBox>
+                <ComboBox
+                x:Name="cb_SelectMonth"
+                materialDesign:HintAssist.Hint="Tháng"
+                HorizontalAlignment="Left"
+                HorizontalContentAlignment="Left"
+                VerticalContentAlignment="Center"
+                FontSize="16"
+                FontWeight="Medium"
+                Margin="20,0,0,0"
+                Width="160"
+                ItemsSource="{Binding ItemSource_Month}"
+                SelectedItem="{Binding First_item_month}"
+                Text="{Binding First_item_month}"
+                
+                
+                >
+                    <i:Interaction.Triggers>
+                        <i:EventTrigger EventName="SelectionChanged">
+                            <i:InvokeCommandAction Command="{Binding MonthChangedCommand}" 
+                                               CommandParameter="{Binding ElementName=reportWindow}"/>
+                        </i:EventTrigger>
+                    </i:Interaction.Triggers>
+
+                </ComboBox>
+                <Button Content="Xuất"
+                        Style="{StaticResource ExportButton}"
+                        Margin="20 5 0 0"
+                        Command="{Binding ExportCommand}"
+                        CommandParameter="{Binding ElementName=reportWindow}">
+                </Button>
+              
+            </StackPanel>
+            <StackPanel Grid.Column="1"
+                Orientation="Horizontal" 
+                        HorizontalAlignment="Right" 
+                        VerticalAlignment="Center"
+                        Margin="0 0 20 0">
+                <Button
+                    Margin="0 0 30 0"
+                    IsEnabled="{Binding isReport}"        
+                Style="{StaticResource MainButton}"
+                ToolTip="Resource name: MaterialDesignRaisedButton"
+                Content="Doanh số"
+                Command="{Binding ReportSalesCommand }"
+                CommandParameter="{Binding ElementName=reportWindow}"/>
+                <Button
+                IsEnabled="{Binding isReport}"   
+                Style="{StaticResource MainButton}"
+                ToolTip="Resource name: MaterialDesignRaisedButton"
+                Content="Báo cáo tồn" 
+                Command="{Binding ReportInventoryCommand}"
+                CommandParameter="{Binding ElementName=reportWindow}"/>
+            </StackPanel>
+        </Grid>
+     
+        <Grid Grid.Row="2" Margin="10,10,10,10">
+            <TabControl>
+                <TabControl.Resources>
+                    <Style TargetType="{x:Type TabItem}">
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="{x:Type TabItem}">
+                                    <Grid Width="250" 
+                                      Margin="-2 0 3 -1" 
+                                      x:Name="ContainX"
+                                      >
+                                        <Border Height="40" 
+                                            Name="Border"
+                                            BorderThickness="1,1,1,0" CornerRadius="5,5,0,0"
+                                            Padding="25,5,25,5" Margin="0,0,0,0"
+                                            Background="White"
+                                            BorderBrush="DarkGray">
+                                            <ContentPresenter x:Name="ContentSite" 
+                                                              ContentSource="Header" 
+                                                              HorizontalAlignment="Center" 
+                                                              VerticalAlignment="Center"
+                                                          
+                                                          >
+                                            </ContentPresenter>
+                                        </Border>
+                                    </Grid>
+                                    <ControlTemplate.Triggers>
+                                        <Trigger Property="IsSelected" Value="True">
+                                            <Setter Property="FontWeight" Value="Bold"/>
+                                            <Setter TargetName="Border" Property="Background" Value="white"/>
+                                            <Setter Property="TextElement.Foreground" TargetName="ContentSite" Value="{StaticResource MainColor}"></Setter>
+                                        </Trigger>
+                                        <Trigger Property="IsSelected" Value="False">
+                                            <Setter Property="TextElement.Foreground" TargetName="ContentSite" Value="White"/>
+                                            <Setter TargetName="Border" Property="Background" Value="{StaticResource MainColor}" />
+                                        </Trigger>
+                                    </ControlTemplate.Triggers>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+
+                    </Style>
+                </TabControl.Resources>
+                <TabItem 
+                    Header="Lịch sử kinh doanh"
+                    Foreground="{StaticResource MainColor}"
+                    FontWeight="Bold"
+                    FontSize="18"
+                    IsSelected="{Binding IsSelectedTabKinhDoanh}"
+                    >
+                    <Grid>
+                        <DataGrid x:Name="lvs_Receipt" ItemsSource="{Binding List, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" 
+                                  SelectionMode="Extended"
+                                          IsReadOnly="True"
+                                          CanUserAddRows="False"
+                                          CanUserDeleteRows="False"
+                                          AutoGenerateColumns="False"
+                                          CanUserReorderColumns="True"
+                                          FontSize="16"
+                                              FontWeight="Normal">
+                            <DataGrid.Resources>
+                                <Style TargetType="{x:Type DataGridRow}" BasedOn="{StaticResource MaterialDesignDataGridRow}">
+                                    <Style.Triggers>
+                                        <Trigger Property="IsMouseOver" Value="True">
+                                            <Setter Property="Background" Value="Gainsboro" />
+                                        </Trigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </DataGrid.Resources>
+
+                            <i:Interaction.Triggers>
+                                <i:EventTrigger EventName="SelectionChanged">
+                                    <i:InvokeCommandAction Command="{Binding BrandSelectionChanged}" 
+                                                                   CommandParameter="{Binding ElementName=dataGrid_brand}"/>
+                                </i:EventTrigger>
+                            </i:Interaction.Triggers>
+
+                            <DataGrid.CellStyle>
+                                <Style TargetType="{x:Type DataGridCell}" BasedOn="{StaticResource MaterialDesignDataGridCell}">
+                                    <Style.Triggers>
+                                        <Trigger Property="DataGridCell.IsSelected" Value="True">
+                                            <Setter Property="FontWeight" Value="DemiBold" />
+                                            <Setter Property="FontSize" Value="17" />
+
+                                        </Trigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </DataGrid.CellStyle>
+
+                            <DataGrid.ColumnHeaderStyle>
+                                <Style TargetType="{x:Type DataGridColumnHeader}" BasedOn="{StaticResource MaterialDesignDataGridColumnHeader}">
+
+                                </Style>
+                            </DataGrid.ColumnHeaderStyle>
+                            <DataGrid.Columns>
+                                <materialDesign:DataGridTextColumn Header="Mã hóa đơn" Width="140"  Binding="{Binding Receipt.Receipt_Id}"></materialDesign:DataGridTextColumn>
+                                <materialDesign:DataGridTextColumn Header="Khách hàng" Width="200"  Binding="{Binding Customer_Name}"></materialDesign:DataGridTextColumn>
+                                <materialDesign:DataGridTextColumn Header="Biển số xe" Width="140"  Binding="{Binding LicensePlate}"></materialDesign:DataGridTextColumn>
+                                <materialDesign:DataGridTextColumn Header="Ngày thanh toán" Width="180"  Binding="{Binding Receipt.ReceiptDate , StringFormat='MM/dd/yyyy'}"></materialDesign:DataGridTextColumn>
+                                <materialDesign:DataGridTextColumn Header="Doanh thu" Width="180"  Binding="{Binding Receipt.MoneyReceived}"></materialDesign:DataGridTextColumn>
+                            </DataGrid.Columns>
+                            <!--<ListView.View>
+                                <GridView>
+                                    <GridViewColumn Header="Mã hóa đơn" Width="250"  DisplayMemberBinding="{Binding Receipt_Id}"></GridViewColumn>
+                                    <GridViewColumn Header="Thời gian" Width="300"  DisplayMemberBinding="{Binding ReceiptDate , StringFormat='dd/MM/YYYY'}"></GridViewColumn>
+                                    <GridViewColumn Header="Doanh thu" Width="250"  DisplayMemberBinding="{Binding MoneyReceived}"></GridViewColumn>
+
+                                </GridView>
+                            </ListView.View>-->
+                        </DataGrid>
+                    </Grid>
+                </TabItem>
+
+                <TabItem 
+                    Header="Lịch sử nhập hàng"
+                    Foreground="{StaticResource MainColor}"
+                    FontWeight="Bold"
+                    FontSize="18"
+                     IsSelected="{Binding IsSelectedTabNhapHang}">
+                    <Grid>
+                        <DataGrid x:Name="lvs_Import" ItemsSource="{Binding ListImport, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" 
+                                  SelectionMode="Extended"
+                                          IsReadOnly="True"
+                                          CanUserAddRows="False"
+                                          CanUserDeleteRows="False"
+                                          AutoGenerateColumns="False"
+                                          CanUserReorderColumns="True"
+                                          FontSize="16"
+                                              FontWeight="Normal">
+                            <DataGrid.Resources>
+                                <Style TargetType="{x:Type DataGridRow}" BasedOn="{StaticResource MaterialDesignDataGridRow}">
+                                    <Style.Triggers>
+                                        <Trigger Property="IsMouseOver" Value="True">
+                                            <Setter Property="Background" Value="Gainsboro" />
+                                        </Trigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </DataGrid.Resources>
+
+                            <DataGrid.CellStyle>
+                                <Style TargetType="{x:Type DataGridCell}" BasedOn="{StaticResource MaterialDesignDataGridCell}">
+                                    <Style.Triggers>
+                                        <Trigger Property="DataGridCell.IsSelected" Value="True">
+                                            <Setter Property="FontWeight" Value="DemiBold" />
+                                            <Setter Property="FontSize" Value="17" />
+
+                                        </Trigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </DataGrid.CellStyle>
+
+                            <DataGrid.ColumnHeaderStyle>
+                                <Style TargetType="{x:Type DataGridColumnHeader}" BasedOn="{StaticResource MaterialDesignDataGridColumnHeader}">
+
+                                </Style>
+                            </DataGrid.ColumnHeaderStyle>
+                            <DataGrid.Columns>
+                                <materialDesign:DataGridTextColumn  Width="300" Header="Vật tư " Binding="{Binding Supplies_Name}"></materialDesign:DataGridTextColumn>
+                                <materialDesign:DataGridTextColumn  Width="100" Header="Số lượng"   Binding="{Binding ImportInfo.Amount }"></materialDesign:DataGridTextColumn>
+                                <materialDesign:DataGridTextColumn  Width="150" Header="Đơn giá"   Binding="{Binding ImportInfo.Price}"></materialDesign:DataGridTextColumn>
+                                <materialDesign:DataGridTextColumn  Width="200" Header="Nhà cung cấp"   Binding="{Binding Supplier_Name}"></materialDesign:DataGridTextColumn>
+                                <materialDesign:DataGridTextColumn  Width="180" Header="Ngày nhập hàng"   Binding="{Binding ImportGoods_Date, StringFormat='MM/dd/yyyy'}"></materialDesign:DataGridTextColumn>
+                                <materialDesign:DataGridTextColumn  Width="150" Header="Mã đơn nhập"   Binding="{Binding IdImport }"></materialDesign:DataGridTextColumn>
+                                <materialDesign:DataGridTextColumn  Header="Tổng chi phí"   Binding="{Binding ImportInfo.TotalMoney}"></materialDesign:DataGridTextColumn>
+                              
+                                
+                            </DataGrid.Columns>
+                            
+                        </DataGrid>
+                        <!--<ListView x:Name="lvs_Import" ItemsSource="{Binding ListImport, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" >
+                            <ListView.View>
+                                <GridView>
+                                    <GridViewColumn Header="Vật tư " DisplayMemberBinding="{Binding Supplies_Name}"></GridViewColumn>
+                                    <GridViewColumn Header="Số lượng"   DisplayMemberBinding="{Binding ImportInfo.Amount }"></GridViewColumn>
+                                    <GridViewColumn Header="Đơn giá"   DisplayMemberBinding="{Binding ImportInfo.Price}"></GridViewColumn>
+                                    <GridViewColumn Header="Thời gian"   DisplayMemberBinding="{Binding ImportGoods_Date}"></GridViewColumn>
+                                    <GridViewColumn Header="Tổng chi phí"   DisplayMemberBinding="{Binding ImportInfo.TotalMoney}"></GridViewColumn>
+
+                                </GridView>
+                            </ListView.View>
+                        </ListView>-->
+                    </Grid>
+                </TabItem>
+
+
+
+            </TabControl>
+        </Grid>
+    </Grid>
+</UserControl>
