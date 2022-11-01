@@ -1,0 +1,365 @@
+﻿<Window x:Class="QuanLyGaraOto.ImportWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:QuanLyGaraOto"
+        mc:Ignorable="d"
+        Title="Nhập phụ tùng"
+         xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+        x:Name="wdImportSupply"
+        Height="800"
+        Width="1400"
+        FontSize="16"
+        Background="#ffffff"
+        WindowStartupLocation="CenterScreen"
+
+         xmlns:validation="clr-namespace:QuanLyGaraOto.Validation"
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:ei="http://schemas.microsoft.com/expression/2010/interactions">
+    <i:Interaction.Triggers>
+        <i:EventTrigger  EventName="Closing">
+            <ei:CallMethodAction TargetObject="{Binding}" MethodName="WindowClosing">
+
+            </ei:CallMethodAction>
+        </i:EventTrigger>
+    </i:Interaction.Triggers>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="70"></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition Height="80"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0" Background="#3d4751">
+            <TextBlock HorizontalAlignment="Center"
+                       VerticalAlignment="Center"
+                       Text="Lập phiếu nhập phụ tùng"
+                       FontSize="30"
+                       Margin="0 20 0 20"
+                       Foreground="White"
+                       ></TextBlock>
+        </Grid>
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width ="450" x:Name ="table"></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <materialDesign:Card Grid.Column="0" Margin="20 20 20 0">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto"></RowDefinition>
+                        <RowDefinition Height="auto"></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <Label Grid.Row="0"
+                               Style="{StaticResource Title}"
+                               Content="Bảng nhập vật tư"
+                               Height="40"
+                               
+                               ></Label>
+                    <StackPanel Grid.Row="1" Margin="15 15 15 0">
+                        <Grid Margin="0 10 5 10">
+                            <Label
+                        Content="Tên phụ tùng"
+                        HorizontalAlignment="Left"
+                        VerticalAlignment="Center"
+                        FontSize="16"
+                        FontWeight="Bold"
+                        Foreground="Black"
+                        />
+                            <ComboBox
+                            x:Name="cbType"
+                            SelectedItem="{Binding SelectedSupply}"
+                            ItemsSource="{Binding ListSupplies}"
+                            DisplayMemberPath="Supplies_Name"
+                            materialDesign:HintAssist.Hint="Chọn phụ tùng"
+                            Height="40" 
+                            FontSize="16" 
+                            Width="250"
+                           
+                            Padding="0" 
+                            HorizontalAlignment="Right"
+                            VerticalContentAlignment="Center" 
+                            HorizontalContentAlignment="Left"
+                            FontWeight="SemiBold">
+                                <i:Interaction.Triggers>
+                                    <i:EventTrigger EventName="SelectionChanged">
+                                        <i:InvokeCommandAction
+                                        Command="{Binding CalculateTotal}"
+                                        CommandParameter="{Binding ElementName=wdImportSupply}"></i:InvokeCommandAction>
+
+                                    </i:EventTrigger>
+                                </i:Interaction.Triggers>
+                            </ComboBox>
+                        </Grid>
+                        <Grid Margin="0 10 5 10">
+                            <Label
+                        Content="Giá nhập"
+                        HorizontalAlignment="Left"
+                        VerticalAlignment="Center"
+                        FontSize="16"
+                        FontWeight="Bold"
+                        Foreground="Black" Margin="0,5"
+                        />
+
+                            <TextBox
+                        x:Name="txbPrice"
+                                materialDesign:ValidationAssist.FontSize="14"
+                        materialDesign:HintAssist.Hint="Nhập giá sản phẩm"                        
+                        HorizontalAlignment="Right"
+                        VerticalAlignment="Center"
+                        FontSize="16"
+                        Width="250"
+                        Height="40" 
+                        Foreground="Black" Grid.ColumnSpan="2"
+                            PreviewTextInput="NumberValidationTextBox"
+                        >
+                                <i:Interaction.Triggers>
+                                    <i:EventTrigger EventName="SelectionChanged">
+                                        <i:InvokeCommandAction
+                                        Command="{Binding CalculateTotal}"
+                                        CommandParameter="{Binding ElementName=wdImportSupply}"></i:InvokeCommandAction>
+
+                                    </i:EventTrigger>
+                                </i:Interaction.Triggers>
+                                <TextBox.Text>
+                                    <Binding Path="ImportPrice" UpdateSourceTrigger="PropertyChanged" Mode="TwoWay">
+                                        <Binding.ValidationRules>
+                                            <validation:NumberValidation ErrorMessage="Chỉ được nhập số (0-9)"
+                                                                         ErrorMessageNull="Vui lòng nhập giá phụ tùng"
+                                                                         ></validation:NumberValidation>
+                                        </Binding.ValidationRules>
+                                    </Binding>
+                                </TextBox.Text>
+                            </TextBox>
+
+                        </Grid>
+                        <Grid Margin="0 10 5 10">
+                            <Label
+                        Content="Số lượng"
+                        HorizontalAlignment="Left"
+                        VerticalAlignment="Center"
+                        FontSize="16"
+                        FontWeight="Bold"
+                        Foreground="Black"
+                        />
+                            <TextBox
+                        x:Name="txbAmount"      
+                                materialDesign:ValidationAssist.FontSize="14"
+                        materialDesign:HintAssist.Hint="Nhập số lượng"
+                        HorizontalAlignment="Right"
+                        VerticalAlignment="Center"
+                        FontSize="16"
+                        Width="250"
+                        Height="40" 
+                        Foreground="Black"
+                        PreviewTextInput="NumberValidationTextBox"
+                        >
+                                <i:Interaction.Triggers>
+                                    <i:EventTrigger EventName="SelectionChanged">
+                                        <i:InvokeCommandAction
+                                        Command="{Binding CalculateTotal}"
+                                        CommandParameter="{Binding ElementName=wdImportSupply}"></i:InvokeCommandAction>
+
+                                    </i:EventTrigger>
+                                </i:Interaction.Triggers>
+                                <TextBox.Text>
+                                    <Binding Path="ImportAmount" UpdateSourceTrigger="PropertyChanged" Mode="TwoWay">
+                                        <Binding.ValidationRules>
+                                            <validation:NumberValidation ErrorMessage="Chỉ được nhập số (0-9)"
+                                                                         ErrorMessageNull="Vui lòng nhập số lượng"
+                                                                         ></validation:NumberValidation>
+                                        </Binding.ValidationRules>
+                                    </Binding>
+                                </TextBox.Text>
+                            </TextBox>
+                        </Grid>
+                        <Grid Margin="0 10 5 10"
+                              VerticalAlignment="Bottom"
+                              Height="40">
+                            <Label
+                        Content="Tổng"
+                        HorizontalAlignment="Left"
+                        VerticalAlignment="Center"
+                        FontSize="16"
+                        FontWeight="Bold"
+                        Foreground="Black" Margin="0,5"
+                        />
+
+                            <TextBox
+                        x:Name="txbCost"
+                        materialDesign:HintAssist.Hint="0"
+                        Text="{Binding Total}"
+                        HorizontalAlignment="Right"
+                        VerticalAlignment="Center"
+                        HorizontalContentAlignment="Right"
+                        FontSize="16"
+                        IsReadOnly="True"
+                        Width="250"
+                                Height="40"
+                        Foreground="Black" Grid.Column="1"
+                        />
+                        </Grid>
+                    </StackPanel>
+                    <StackPanel Grid.Row="2" Orientation="Horizontal"
+                            VerticalAlignment="Top"
+                            HorizontalAlignment="Center"
+                            Margin="0 30 0 0">
+                        <Button
+                    Command="{Binding AddGoodCommand}"
+                    CommandParameter="{Binding ElementName=wdImportSupply}"
+                    Style="{StaticResource AddButton}"
+                    Content="Thêm"
+                    HorizontalAlignment="Left"
+                    ToolTip="Resource name: MaterialDesignRaisedButton">
+                        </Button>
+                        <Button
+                        Margin="60 0 0 0"
+                    Command="{Binding DeleteCommand}"
+                    CommandParameter="{Binding ElementName=wdImportSupply}"
+                    Style="{StaticResource DeleteButton}"
+                        Content="Xóa"
+                    HorizontalAlignment="Right">
+                        </Button>
+                    </StackPanel>
+                </Grid>
+            </materialDesign:Card>
+           
+            <Grid Grid.Column="1" Margin="0 20 10 0">
+                <Grid.RowDefinitions>
+                    <RowDefinition ></RowDefinition>
+                    <RowDefinition Height="70"></RowDefinition>
+                </Grid.RowDefinitions>
+                <Grid Grid.Row="0">
+                    <DataGrid  ItemsSource="{Binding ListImport}" 
+                                    SelectedItem="{Binding SelectedItem}"
+                                    SelectionMode="Extended"
+                                    IsReadOnly="True"
+                                    CanUserAddRows="False"
+                                    AutoGenerateColumns="False"
+                                    CanUserDeleteRows="False"
+                                    CanUserReorderColumns="True"
+                                    x:Name="datagrid"
+                                    FontSize="16">
+                        <DataGrid.Resources>
+                            <Style TargetType="{x:Type DataGridRow}" BasedOn="{StaticResource MaterialDesignDataGridRow}">
+                                <Style.Triggers>
+                                    <Trigger Property="IsMouseOver" Value="True">
+                                        <Setter Property="Background" Value="Gainsboro" />
+                                    </Trigger>
+                                </Style.Triggers>
+                            </Style>
+                        </DataGrid.Resources>
+                        <i:Interaction.Triggers>
+                            <i:EventTrigger EventName="SelectionChanged">
+                                <i:InvokeCommandAction Command="{Binding SelectionChanged}" 
+                                                   CommandParameter="{Binding ElementName=datagrid}"></i:InvokeCommandAction>
+                            </i:EventTrigger>
+                        </i:Interaction.Triggers>
+                        <DataGrid.CellStyle>
+                            <Style TargetType="{x:Type DataGridCell}" BasedOn="{StaticResource MaterialDesignDataGridCell}">
+                                <Style.Triggers>
+                                    <Trigger Property="DataGridCell.IsSelected" Value="True">
+                                        <Setter Property="FontWeight" Value="DemiBold" />
+                                        <Setter Property="FontSize" Value="17" />
+
+                                    </Trigger>
+
+                                </Style.Triggers>
+                            </Style>
+                        </DataGrid.CellStyle>
+                        <DataGrid.ColumnHeaderStyle>
+                            <Style TargetType="{x:Type DataGridColumnHeader}" BasedOn="{StaticResource MaterialDesignDataGridColumnHeader}">
+                                <Setter Property="Background" Value="{StaticResource MainColor}"></Setter>
+                                <Setter Property="Foreground" Value="White"></Setter>
+                                <Setter Property="FontWeight" Value="DemiBold"></Setter>
+                            </Style>
+                        </DataGrid.ColumnHeaderStyle>
+                        <DataGrid.Columns>
+                            <materialDesign:DataGridTextColumn Header="Vật tư" Binding="{Binding SUPPLIES.Supplies_Name}" Width="300"></materialDesign:DataGridTextColumn>
+                            <materialDesign:DataGridTextColumn Header="Giá nhập" Binding="{Binding Price}" Width="120"></materialDesign:DataGridTextColumn>
+                            <materialDesign:DataGridTextColumn Header="Số lượng" Binding="{Binding Amount}" Width="120"></materialDesign:DataGridTextColumn>
+                            <materialDesign:DataGridTextColumn Header="Đơn giá" Binding="{Binding TotalMoney}"></materialDesign:DataGridTextColumn>
+
+                        </DataGrid.Columns>
+                    </DataGrid>
+                    <!--<ScrollViewer>
+                        <ListView 
+                                ItemsSource="{Binding ListImport}" 
+                                SelectedItem="{Binding SelectedItem}"
+                                >
+                            <ListView.View>
+                                <GridView>
+                                    <GridViewColumn Header="Vật tư" DisplayMemberBinding="{Binding ImportInfo.SUPPLIES.Supplies_Name}" Width="220"></GridViewColumn>
+                                    <GridViewColumn Header="Giá nhập" DisplayMemberBinding="{Binding ImportInfo.Price}" Width="120"></GridViewColumn>
+                                    <GridViewColumn Header="Số lượng" DisplayMemberBinding="{Binding ImportInfo.Amount}" Width="120"></GridViewColumn>
+                                    <GridViewColumn Header="Đơn giá" DisplayMemberBinding="{Binding ImportInfo.TotalMoney}"></GridViewColumn>
+                                </GridView>
+                            </ListView.View>
+                        </ListView>
+                    </ScrollViewer>-->
+                </Grid>
+                <Grid Grid.Row="1">
+                    <Grid Margin="10 10 10 10"
+                          Width="240"
+                          
+                          HorizontalAlignment="Right"
+                          VerticalAlignment="Bottom"
+                          >
+                        <Grid >
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="auto"></ColumnDefinition>
+                                <ColumnDefinition></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <DatePicker FontSize="14"
+                                            IsEnabled="false"
+                                            x:Name="dtpImportDate"
+                                            Text="{Binding ImportDate}"
+                                            Grid.Column="1"
+                                            VerticalAlignment="Center"
+                                            materialDesign:HintAssist.Hint="Ngày nhập"
+                                            Style="{StaticResource MaterialDesignFloatingHintDatePicker}" />
+                        </Grid>
+                    </Grid>
+                </Grid>
+
+            </Grid>
+        </Grid>
+        <StackPanel Grid.Row="2" 
+                    Orientation="Horizontal"
+                    VerticalAlignment="Center"
+                    HorizontalAlignment="Right"
+                    Margin="0 0 50 0">
+            <Button
+                    x:Name="btnView"
+                    Command="{Binding ViewCommand}"
+                    CommandParameter="{Binding ElementName=wdImportSupply}"
+                    Style="{StaticResource MainButton}"
+                    Visibility="Hidden"
+                    Width="160"
+                    Height="43">
+                _Xem Hóa đơn
+            </Button>
+            <Button
+                    x:Name="btnPay"
+                    Command="{Binding PayCommand}"
+                    CommandParameter="{Binding ElementName=wdImportSupply}"
+                    Style="{StaticResource MainButton}"
+                    Width="160"
+                    Height="43">
+                _Thanh toán
+            </Button>
+            
+            <Button
+                Margin="60 0 0 0"
+                    Style="{StaticResource CloseButton}"
+                    Command="{Binding CloseCommand}"
+                    CommandParameter="{Binding ElementName=wdImportSupply}"
+                    Width="160"
+                    ToolTip="Resource name: MaterialDesignRaisedLightButton">
+                _Đóng
+            </Button>
+        </StackPanel>
+    </Grid>
+</Window>
+
