@@ -9,22 +9,53 @@ namespace UnitTest_GaraOto
     [TestFixture]
     public class MyTesting
     {
+        // Test function checkValueBrand
         [Test]
-        public void checkValueBrand_Test()
+        public void checkValueBrandUTCID01_Test()
         {
             _MainFunction functionTest = new _MainFunction();
             ObservableCollection<CAR_BRAND> list = new ObservableCollection<CAR_BRAND>()
             {
                 new CAR_BRAND(){ CarBrand_Name = "KIA"},
-                new CAR_BRAND(){ CarBrand_Name = "ASD"},
-                new CAR_BRAND(){ CarBrand_Name = "BBB"},
+                new CAR_BRAND(){ CarBrand_Name = "Toyota"},
+                new CAR_BRAND(){ CarBrand_Name = "Mazda"},
 
             };
-            bool add_Result = functionTest.checkValueBrand("KIA",list);
+            bool add_Result = functionTest.checkValueBrand("Vinfast",list);
             Assert.That(add_Result, Is.EqualTo(true));
         }
         [Test]
-        public void checkValueSupplies_Test()
+        public void checkValueBrandUTCID02_Test()
+        {
+            _MainFunction functionTest = new _MainFunction();
+            ObservableCollection<CAR_BRAND> list = new ObservableCollection<CAR_BRAND>()
+            {
+                new CAR_BRAND(){ CarBrand_Name = "KIA"},
+                new CAR_BRAND(){ CarBrand_Name = "Toyota"},
+                new CAR_BRAND(){ CarBrand_Name = "Mazda"},
+
+            };
+            bool add_Result = functionTest.checkValueBrand("KIA", list);
+            Assert.That(add_Result, Is.EqualTo(false));
+        }
+        [Test]
+        public void checkValueBrandUTCID03_Test()
+        {
+            _MainFunction functionTest = new _MainFunction();
+            ObservableCollection<CAR_BRAND> list = new ObservableCollection<CAR_BRAND>()
+            {
+                new CAR_BRAND(){ CarBrand_Name = "KIA"},
+                new CAR_BRAND(){ CarBrand_Name = "Toyota"},
+                new CAR_BRAND(){ CarBrand_Name = "Mazda"},
+
+            };
+            bool add_Result = functionTest.checkValueBrand("", list);
+            Assert.That(add_Result, Is.EqualTo(false));
+        }
+
+        // Test function checkValueSupplies
+        [Test]
+        public void checkValueSuppliesUTCID01_Test()
         {
             ObservableCollection<SUPPLIES> list = new ObservableCollection<SUPPLIES>()
             {
@@ -38,6 +69,9 @@ namespace UnitTest_GaraOto
             bool add_Result = functionTest.checkValueSupplies(name, price, list);
             Assert.That(add_Result, Is.EqualTo(true));
         }
+        //[Test]
+        //public void 
+
         [Test]
         public void checkValueSupplier_Test()
         {
