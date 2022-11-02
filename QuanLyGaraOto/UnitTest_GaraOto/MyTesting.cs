@@ -39,15 +39,6 @@ namespace UnitTest_GaraOto
             Assert.That(add_Result, Is.EqualTo(true));
         }        
         
-        [Test]
-        public void checkValueDetailImportSupplies_Test()
-        {
-            string name = "Sơn XY";
-            string price = "250000";
-            string amount = "3";
-            _MainFunction functionTest = new _MainFunction();
-            bool add_Result = functionTest.checkValueDetailImportSupplies(name, price, amount);
-            Assert.That(add_Result, Is.EqualTo(true));
-        }
+        
     }
 }
