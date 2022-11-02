@@ -16,6 +16,7 @@ namespace QuanLyGaraOto.ViewModel
             ObservableCollection<CAR_BRAND> list)
 
         {
+            if (name == null) return false;
             if (string.IsNullOrEmpty(name.Trim()))
             {
                 return false;
@@ -26,11 +27,12 @@ namespace QuanLyGaraOto.ViewModel
             }
             return true;
         }
-        public bool checkValueSupplies(string name, string price, 
+        public bool checkValueSupplies(string name, string price,
             ObservableCollection<SUPPLIES> list)
         {
             // Kiểm tra null
-            if (string.IsNullOrEmpty(name.Trim()) || string.IsNullOrEmpty(price.Trim())){
+            if (string.IsNullOrEmpty(name.Trim()) 
+                || string.IsNullOrEmpty(price.Trim())){
                 return false;
             }
 
@@ -49,6 +51,7 @@ namespace QuanLyGaraOto.ViewModel
             ObservableCollection<SUPPLIER> list)
         {
             // Kiểm tra null
+            if (name == null || phone == null || email == null) return false;
             if (string.IsNullOrEmpty(name.Trim()) || string.IsNullOrEmpty(phone.Trim())
                 || string.IsNullOrEmpty(email.Trim())) {
                 return false;
