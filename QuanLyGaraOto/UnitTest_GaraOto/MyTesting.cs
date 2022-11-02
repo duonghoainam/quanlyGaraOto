@@ -10,7 +10,6 @@ namespace UnitTest_GaraOto
     public class MyTesting
     {
        
-        
         [Test]
         public void checkValueEmployee_Test()
         {
@@ -39,15 +38,7 @@ namespace UnitTest_GaraOto
             listUser, listUserInfo);
             Assert.That(add_Result, Is.EqualTo(true));
         }        
-        [Test]
-        public void checkValueImportSupplies_Test()
-        {
-            string importDate = "08/11/2021";
-            string supplier = "Vật Tư ABC";
-            _MainFunction functionTest = new _MainFunction();
-            bool add_Result = functionTest.checkValueImportSupplies( importDate, supplier);
-            Assert.That(add_Result, Is.EqualTo(true));
-        }
+        
         [Test]
         public void checkValueDetailImportSupplies_Test()
         {
