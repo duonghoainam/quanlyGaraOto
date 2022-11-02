@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "B2ncvwvw/VRQ3Pm1alzr6YOHoJ0kvkbq4oGOZVM45WpHUN7rnWYaOYi2quM4mOLLceGlNTumRTvFU0BiRmjs4Q==",
+  "dgSpecHash": "dBA4/BelKcwI7dtg7XkMq6NHdubJmRA2FRv0rO4pbxiAV1gU2nDT3sZISHQocmTP/VxSdvRV9csu0UYMFrGGnQ==",
   "success": true,
   "projectFilePath": "D:\\Schools\\Software_Testing\\quanlyGaraOto\\QuanLyGaraOto\\UnitTest_GaraOto\\UnitTest_GaraOto.csproj",
   "expectedPackageFiles": [
@@ -48,10 +48,7 @@
     "C:\\Users\\thanh\\.nuget\\packages\\system.threading.tasks\\4.0.11\\system.threading.tasks.4.0.11.nupkg.sha512",
     "C:\\Users\\thanh\\.nuget\\packages\\system.threading.tasks.extensions\\4.0.0\\system.threading.tasks.extensions.4.0.0.nupkg.sha512",
     "C:\\Users\\thanh\\.nuget\\packages\\system.xml.readerwriter\\4.0.11\\system.xml.readerwriter.4.0.11.nupkg.sha512",
-    "C:\\Users\\thanh\\.nuget\\packages\\system.xml.xdocument\\4.0.11\\system.xml.xdocument.4.0.11.nupkg.sha512",
-    "C:\\Users\\thanh\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\3.1.10\\microsoft.aspnetcore.app.ref.3.1.10.nupkg.sha512",
-    "C:\\Users\\thanh\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\3.1.0\\microsoft.windowsdesktop.app.ref.3.1.0.nupkg.sha512",
-    "C:\\Users\\thanh\\.nuget\\packages\\microsoft.netcore.app.ref\\3.1.0\\microsoft.netcore.app.ref.3.1.0.nupkg.sha512"
+    "C:\\Users\\thanh\\.nuget\\packages\\system.xml.xdocument\\4.0.11\\system.xml.xdocument.4.0.11.nupkg.sha512"
   ],
   "logs": []
 }
