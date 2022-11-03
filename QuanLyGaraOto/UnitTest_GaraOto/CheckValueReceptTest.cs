@@ -44,6 +44,12 @@ namespace UnitTest_GaraOto
                 "",
                 null,
             };
+
+            _listExpectedOutputs = new List<bool>()
+            {
+                true,
+                false,
+            };
         }
 
         [Test]

@@ -51,7 +51,7 @@ namespace UnitTest_GaraOto
                 "",
                 "abc",
             };
-            _listInputReceptionDates = new List<string>()
+            _listInputLicensePlates = new List<string>()
             {
                 "55-XX-0000",
                 "",
