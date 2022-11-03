@@ -3,6 +3,7 @@ using System.Collections.ObjectModel;
 using NUnit.Framework;
 using QuanLyGaraOto.Model;
 using QuanLyGaraOto.ViewModel;
+using System.Collections.Generic;
 
 namespace UnitTest_GaraOto
 {
@@ -10,100 +11,133 @@ namespace UnitTest_GaraOto
     public class CheckValueDetailRepairTest
     {
         private _MainFunction _functionTest;
+        private List<string> _listInputContents;
+        private List<string> _listInputSupplies;
+        private List<string> _listInputAmounts;
+        private List<string> _listInputWageTypes;
+        private List<bool> _listExpectedOutputs;
 
         [SetUp]
         public void Setup()
         {
-            _functionTest = new _MainFunction();   
+            _functionTest = new _MainFunction();
+
+            _listInputContents = new List<string>()
+            {
+                "Thay phụ tùng",
+                "",
+            };
+            _listInputSupplies = new List<string>()
+            {
+                "Bánh xe",
+                "",
+            };
+            _listInputAmounts = new List<string>()
+            {
+                "2",
+                "0",
+                "",
+            };
+            _listInputWageTypes = new List<string>()
+            {
+                "Thay phụ tùng",
+                "",
+            };
+
+            _listExpectedOutputs = new List<bool>()
+            {
+                true,
+                false,
+            };
         }
 
         [Test]
         public void checkValueDetailRepairUTCID01_Test()
         {
-            string name = "Thay phụ tùng";
-            string supplies = "Bánh xe";
-            string amount = "1";
-            string wage = "Thay phụ tùng";
-            _MainFunction functionTest = new _MainFunction();
-            bool add_Result = functionTest.checkValueDetailRepair(name, supplies, amount, wage);
-            Assert.That(add_Result, Is.EqualTo(true));
+            bool add_Result = _functionTest.checkValueDetailRepair(
+                _listInputContents[0],
+                _listInputSupplies[0],
+                _listInputAmounts[0],
+                _listInputWageTypes[0]
+                );
+            Assert.That(add_Result, Is.EqualTo(_listExpectedOutputs[0]));
         }
         [Test]
         public void checkValueDetailRepairUTCID02_Test()
         {
-            string name = "";
-            string supplies = "Bánh xe";
-            string amount = "1";
-            string wage = "Thay phụ tùng";
-            _MainFunction functionTest = new _MainFunction();
-            bool add_Result = functionTest.checkValueDetailRepair(name, supplies, amount, wage);
-            Assert.That(add_Result, Is.EqualTo(false));
+            bool add_Result = _functionTest.checkValueDetailRepair(
+                _listInputContents[1],
+                _listInputSupplies[0],
+                _listInputAmounts[0],
+                _listInputWageTypes[0]
+                );
+            Assert.That(add_Result, Is.EqualTo(_listExpectedOutputs[1]));
         }
         [Test]
         public void checkValueDetailRepairUTCID03_Test()
         {
-            string name = "Thay phụ tùng";
-            string supplies = "";
-            string amount = "1";
-            string wage = "Thay phụ tùng";
-            _MainFunction functionTest = new _MainFunction();
-            bool add_Result = functionTest.checkValueDetailRepair(name, supplies, amount, wage);
-            Assert.That(add_Result, Is.EqualTo(false));
+            bool add_Result = _functionTest.checkValueDetailRepair(
+                _listInputContents[0],
+                _listInputSupplies[1],
+                _listInputAmounts[0],
+                _listInputWageTypes[0]
+                );
+            Assert.That(add_Result, Is.EqualTo(_listExpectedOutputs[1]));
         }
         [Test]
         public void checkValueDetailRepairUTCID04_Test()
         {
-            string name = "Thay phụ tùng";
-            string supplies = "Bánh xe";
-            string amount = "0";
-            string wage = "Thay phụ tùng";
-            _MainFunction functionTest = new _MainFunction();
-            bool add_Result = functionTest.checkValueDetailRepair(name, supplies, amount, wage);
-            Assert.That(add_Result, Is.EqualTo(false));
+            bool add_Result = _functionTest.checkValueDetailRepair(
+                _listInputContents[0],
+                _listInputSupplies[0],
+                _listInputAmounts[1],
+                _listInputWageTypes[0]
+                );
+            Assert.That(add_Result, Is.EqualTo(_listExpectedOutputs[1]));
         }
         [Test]
         public void checkValueDetailRepairUTCID05_Test()
         {
-            string name = "Thay phụ tùng";
-            string supplies = "Bánh xe";
-            string amount = "1";
-            string wage = "";
-            _MainFunction functionTest = new _MainFunction();
-            bool add_Result = functionTest.checkValueDetailRepair(name, supplies, amount, wage);
-            Assert.That(add_Result, Is.EqualTo(false));
+            bool add_Result = _functionTest.checkValueDetailRepair(
+                _listInputContents[0],
+                _listInputSupplies[0],
+                _listInputAmounts[0],
+                _listInputWageTypes[1]
+                );
+            Assert.That(add_Result, Is.EqualTo(_listExpectedOutputs[1]));
         }
         [Test]
         public void checkValueDetailRepairUTCID06_Test()
         {
-            string name = "";
-            string supplies = "";
-            string amount = "0";
-            string wage = "";
-            _MainFunction functionTest = new _MainFunction();
-            bool add_Result = functionTest.checkValueDetailRepair(name, supplies, amount, wage);
-            Assert.That(add_Result, Is.EqualTo(false));
+            bool add_Result = _functionTest.checkValueDetailRepair(
+                _listInputContents[1],
+                _listInputSupplies[1],
+                _listInputAmounts[1],
+                _listInputWageTypes[1]
+                );
+            Assert.That(add_Result, Is.EqualTo(_listExpectedOutputs[1]));
         }
         [Test]
         public void checkValueDetailRepairUTCID07_Test()
         {
-            string name = "Thay phụ tùng";
-            string supplies = "Bánh xe";
-            string amount = "";
-            string wage = "Thay phụ tùng";
-            _MainFunction functionTest = new _MainFunction();
-            bool add_Result = functionTest.checkValueDetailRepair(name, supplies, amount, wage);
-            Assert.That(add_Result, Is.EqualTo(false));
+            bool add_Result = _functionTest.checkValueDetailRepair(
+                _listInputContents[0],
+                _listInputSupplies[0],
+                _listInputAmounts[2],
+                _listInputWageTypes[0]
+                );
+            Assert.That(add_Result, Is.EqualTo(_listExpectedOutputs[1]));
         }
         [Test]
         public void checkValueDetailRepairUTCID08_Test()
         {
-            string name = "";
-            string supplies = "";
-            string amount = "";
-            string wage = "";
-            _MainFunction functionTest = new _MainFunction();
-            bool add_Result = functionTest.checkValueDetailRepair(name, supplies, amount, wage);
-            Assert.That(add_Result, Is.EqualTo(false));
+            bool add_Result = _functionTest.checkValueDetailRepair(
+                _listInputContents[1],
+                _listInputSupplies[1],
+                _listInputAmounts[2],
+                _listInputWageTypes[1]
+                );
+            Assert.That(add_Result, Is.EqualTo(_listExpectedOutputs[1]));
         }
     }
 }
