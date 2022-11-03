@@ -3,6 +3,7 @@ using System.Collections.ObjectModel;
 using NUnit.Framework;
 using QuanLyGaraOto.Model;
 using QuanLyGaraOto.ViewModel;
+using System.Collections.Generic;
 
 namespace UnitTest_GaraOto
 {
@@ -11,6 +12,11 @@ namespace UnitTest_GaraOto
     {
         private _MainFunction _functionTest;
         private ObservableCollection<SUPPLIER> _listSuppliers;
+        private List<string> _listInputNames;
+        private List<string> _listInputPhones;
+        private List<string> _listInputEmails;
+        private List<bool> _listExpectedOutputs;
+
         [SetUp]
         public void Setup()
         {
@@ -22,87 +28,132 @@ namespace UnitTest_GaraOto
                 new SUPPLIER(){ Supplier_Name = "Vật Tư Thành Công",},
 
             };
+
+            _listInputNames = new List<string>()
+            {
+                null,
+                "",
+                "Công ty A",
+                "Vật Tư ABC",
+            };
+            _listInputPhones = new List<string>()
+            {
+                null,
+                "",
+                "a1234",
+                "1234564923",
+            };
+            _listInputEmails = new List<string>()
+            {
+                null,
+                "",
+                "congtyA@gmail.com",
+            };
+
+            _listExpectedOutputs = new List<bool>()
+            {
+                true,
+                false,
+            };
         }
         [Test]
         public void checkValueSupplierUTCID01_Test()
         {
-            string name = null;
-            string phone = "0123564923";
-            string email = "congtyA@gmail.com";
-            bool add_Result = _functionTest.checkValueSupplier(name, phone, email, _listSuppliers);
-            Assert.That(add_Result, Is.EqualTo(false));
+            bool add_Result = _functionTest.checkValueSupplier(
+                    _listInputNames[0],
+                    _listInputPhones[3],
+                    _listInputEmails[2],
+                    _listSuppliers
+                );
+            Assert.That(add_Result, Is.EqualTo(_listExpectedOutputs[1]));
         }
         [Test]
         public void checkValueSupplierUTCID02_Test()
         {
-            string name = "Công ty A";
-            string phone = null;
-            string email = "congtyA@gmail.com";
-            bool add_Result = _functionTest.checkValueSupplier(name, phone, email, _listSuppliers);
-            Assert.That(add_Result, Is.EqualTo(false));
+            bool add_Result = _functionTest.checkValueSupplier(
+                    _listInputNames[2],
+                    _listInputPhones[0],
+                    _listInputEmails[2],
+                    _listSuppliers
+                );
+            Assert.That(add_Result, Is.EqualTo(_listExpectedOutputs[1]));
         }
         [Test]
         public void checkValueSupplierUTCID03_Test()
         {
-            string name = "Công ty A";
-            string phone = "0123564923";
-            string email = null;
-            bool add_Result = _functionTest.checkValueSupplier(name, phone, email, _listSuppliers);
-            Assert.That(add_Result, Is.EqualTo(false));
+            bool add_Result = _functionTest.checkValueSupplier(
+                    _listInputNames[2],
+                    _listInputPhones[3],
+                    _listInputEmails[0],
+                    _listSuppliers
+                );
+            Assert.That(add_Result, Is.EqualTo(_listExpectedOutputs[1]));
         }
         [Test]
         public void checkValueSupplierUTCID04_Test()
         {
-            string name = "";
-            string phone = "0123564923";
-            string email = "congtyA@gmail.com";
-            bool add_Result = _functionTest.checkValueSupplier(name, phone, email, _listSuppliers);
-            Assert.That(add_Result, Is.EqualTo(false));
+            bool add_Result = _functionTest.checkValueSupplier(
+                    _listInputNames[1],
+                    _listInputPhones[3],
+                    _listInputEmails[2],
+                    _listSuppliers
+                );
+            Assert.That(add_Result, Is.EqualTo(_listExpectedOutputs[1]));
         }
         [Test]
         public void checkValueSupplierUTCID05_Test()
         {
-            string name = "Công ty A";
-            string phone = "";
-            string email = "congtyA@gmail.com";
-            bool add_Result = _functionTest.checkValueSupplier(name, phone, email, _listSuppliers);
-            Assert.That(add_Result, Is.EqualTo(false));
+            bool add_Result = _functionTest.checkValueSupplier(
+                    _listInputNames[2],
+                    _listInputPhones[1],
+                    _listInputEmails[2],
+                    _listSuppliers
+                );
+            Assert.That(add_Result, Is.EqualTo(_listExpectedOutputs[1]));
         }
         [Test]
         public void checkValueSupplierUTCID06_Test()
         {
-            string name = "Công ty A";
-            string phone = "0123564923";
-            string email = "";
-            bool add_Result = _functionTest.checkValueSupplier(name, phone, email, _listSuppliers);
-            Assert.That(add_Result, Is.EqualTo(false));
+            bool add_Result = _functionTest.checkValueSupplier(
+                    _listInputNames[2],
+                    _listInputPhones[3],
+                    _listInputEmails[1],
+                    _listSuppliers
+                );
+            Assert.That(add_Result, Is.EqualTo(_listExpectedOutputs[1]));
         }
         [Test]
         public void checkValueSupplierUTCID07_Test()
         {
-            string name = "Vật Tư ABC";
-            string phone = "0123564923";
-            string email = "congtyA@gmail.com";
-            bool add_Result = _functionTest.checkValueSupplier(name, phone, email, _listSuppliers);
-            Assert.That(add_Result, Is.EqualTo(false));
+            bool add_Result = _functionTest.checkValueSupplier(
+                    _listInputNames[3],
+                    _listInputPhones[3],
+                    _listInputEmails[2],
+                    _listSuppliers
+                );
+            Assert.That(add_Result, Is.EqualTo(_listExpectedOutputs[1]));
         }
         [Test]
         public void checkValueSupplierUTCID08_Test()
         {
-            string name = "Công ty A";
-            string phone = "a1234";
-            string email = "congtyA@gmail.com";
-            bool add_Result = _functionTest.checkValueSupplier(name, phone, email, _listSuppliers);
-            Assert.That(add_Result, Is.EqualTo(false));
+            bool add_Result = _functionTest.checkValueSupplier(
+                    _listInputNames[2],
+                    _listInputPhones[2],
+                    _listInputEmails[2],
+                    _listSuppliers
+                );
+            Assert.That(add_Result, Is.EqualTo(_listExpectedOutputs[1]));
         }
         [Test]
         public void checkValueSupplierUTCID09_Test()
         {
-            string name = "Công ty A";
-            string phone = "0123564923";
-            string email = "congtyA@gmail.com";
-            bool add_Result = _functionTest.checkValueSupplier(name, phone, email, _listSuppliers);
-            Assert.That(add_Result, Is.EqualTo(true));
+            bool add_Result = _functionTest.checkValueSupplier(
+                    _listInputNames[2],
+                    _listInputPhones[3],
+                    _listInputEmails[2],
+                    _listSuppliers
+                );
+            Assert.That(add_Result, Is.EqualTo(_listExpectedOutputs[0]));
         }
     }
 }
