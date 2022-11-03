@@ -7,7 +7,7 @@ using QuanLyGaraOto.ViewModel;
 namespace UnitTest_GaraOto
 {
     [TestFixture]
-    public class CheckValueDetailImportSupplies
+    public class CheckValueDetailImportSuppliesTest
     {
         private _MainFunction _functionTest;
 
