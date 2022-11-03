@@ -13,6 +13,7 @@ namespace UnitTest_GaraOto
     {
         private _MainFunction _functionTest;
         private ObservableCollection<CAR_BRAND> _listCarBrands;
+
         [SetUp]
         public void Setup() { 
             _functionTest = new _MainFunction();
@@ -24,6 +25,7 @@ namespace UnitTest_GaraOto
 
             };
         }
+
         [Test]
         public void checkValueBrandUTCID01_Test()
         {
