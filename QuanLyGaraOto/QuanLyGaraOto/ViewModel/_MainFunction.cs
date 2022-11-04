@@ -117,57 +117,57 @@ namespace QuanLyGaraOto.ViewModel
             }
             return true;
         }
-        public bool checkValueRepair(string idReception, string repairDate)
-        {
-            // Kiểm tra null
-            if (string.IsNullOrEmpty(idReception)
-                    || string.IsNullOrEmpty(repairDate))
-            {
-                return false;
-            }
-            try
-            {
-                DateTime result = DateTime.Now;
-                if (!DateTime.TryParse(repairDate, out result)) return false;
-            }
-            catch
-            {
-                return false;
-            }
-            return true;
-        }
-        public bool checkValueDetailRepair(string name, string supplies,
-            string amount, string wage)
-        {
-            // Kiểm tra null
-            if (string.IsNullOrEmpty(name)
-                    || string.IsNullOrEmpty(name)
-                    || string.IsNullOrEmpty(supplies)
-                    || string.IsNullOrEmpty(amount)
-                    || string.IsNullOrEmpty(wage))
-            {
-                return false;
-            }
+        //public bool checkValueRepair(string idReception, string repairDate)
+        //{
+        //    // Kiểm tra null
+        //    if (string.IsNullOrEmpty(idReception)
+        //            || string.IsNullOrEmpty(repairDate))
+        //    {
+        //        return false;
+        //    }
+        //    try
+        //    {
+        //        DateTime result = DateTime.Now;
+        //        if (!DateTime.TryParse(repairDate, out result)) return false;
+        //    }
+        //    catch
+        //    {
+        //        return false;
+        //    }
+        //    return true;
+        //}
+        //public bool checkValueDetailRepair(string name, string supplies,
+        //    string amount, string wage)
+        //{
+        //    // Kiểm tra null
+        //    if (string.IsNullOrEmpty(name)
+        //            || string.IsNullOrEmpty(name)
+        //            || string.IsNullOrEmpty(supplies)
+        //            || string.IsNullOrEmpty(amount)
+        //            || string.IsNullOrEmpty(wage))
+        //    {
+        //        return false;
+        //    }
 
-            // Kiểm tra là số
-            Regex regex = new Regex(@"^[0-9]+$");
-            if (!regex.IsMatch(amount) && !string.IsNullOrEmpty(amount)) return false;
-            return true;
-        }
-        public bool checkValueReceipt(string money, string receiptDate,string email)
-        {
-            if (string.IsNullOrEmpty(money)
-                    || string.IsNullOrEmpty(receiptDate)
-                    || string.IsNullOrEmpty(email))
-            {
-                return false;
-            }
+        //    // Kiểm tra là số
+        //    Regex regex = new Regex(@"^[0-9]+$");
+        //    if (!regex.IsMatch(amount) && !string.IsNullOrEmpty(amount)) return false;
+        //    return true;
+        //}
+        //public bool checkValueReceipt(string money, string receiptDate,string email)
+        //{
+        //    if (string.IsNullOrEmpty(money)
+        //            || string.IsNullOrEmpty(receiptDate)
+        //            || string.IsNullOrEmpty(email))
+        //    {
+        //        return false;
+        //    }
 
-            // Kiểm tra là số
-            Regex regex = new Regex(@"^[0-9]+$");
-            if (!regex.IsMatch(money) && !string.IsNullOrEmpty(money)) return false;
-            return true;
-        }
+        //    // Kiểm tra là số
+        //    Regex regex = new Regex(@"^[0-9]+$");
+        //    if (!regex.IsMatch(money) && !string.IsNullOrEmpty(money)) return false;
+        //    return true;
+        //}
         public bool checkValueEmployee(string accountName, string name,
             string role, string birthDate, string cmnd, string phone, string address,
             ObservableCollection<USER> listUser, ObservableCollection<USER_INFO> listUserInfo)
