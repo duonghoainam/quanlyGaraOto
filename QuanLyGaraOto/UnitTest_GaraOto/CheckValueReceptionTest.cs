@@ -26,7 +26,7 @@ namespace UnitTest_GaraOto
 
             _listInputNames = new List<string>()
             {
-                "Dat",
+                "Luan",
                 "",
             };
             _listInputPhones = new List<string>()

@@ -1,39 +1,30 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Schools\\Software_Testing\\quanlyGaraOto\\QuanLyGaraOto\\UnitTest_GaraOto\\UnitTest_GaraOto.csproj": {}
+    "D:\\UIT\\Testing\\da\\quanlyGaraOto\\QuanLyGaraOto\\UnitTest_GaraOto\\UnitTest_GaraOto.csproj": {}
   },
   "projects": {
-    "D:\\Schools\\Software_Testing\\quanlyGaraOto\\QuanLyGaraOto\\QuanLyGaraOto\\QuanLyGaraOto.csproj": {
+    "D:\\UIT\\Testing\\da\\quanlyGaraOto\\QuanLyGaraOto\\QuanLyGaraOto\\QuanLyGaraOto.csproj": {
       "restore": {
-        "projectUniqueName": "D:\\Schools\\Software_Testing\\quanlyGaraOto\\QuanLyGaraOto\\QuanLyGaraOto\\QuanLyGaraOto.csproj",
+        "projectUniqueName": "D:\\UIT\\Testing\\da\\quanlyGaraOto\\QuanLyGaraOto\\QuanLyGaraOto\\QuanLyGaraOto.csproj",
         "projectName": "QuanLyGaraOto",
-        "projectPath": "D:\\Schools\\Software_Testing\\quanlyGaraOto\\QuanLyGaraOto\\QuanLyGaraOto\\QuanLyGaraOto.csproj",
-        "frameworks": {
-          "net472": {
-            "projectReferences": {}
-          }
-        }
+        "projectPath": "D:\\UIT\\Testing\\da\\quanlyGaraOto\\QuanLyGaraOto\\QuanLyGaraOto\\QuanLyGaraOto.csproj"
       },
       "frameworks": {
         "net472": {}
       }
     },
-    "D:\\Schools\\Software_Testing\\quanlyGaraOto\\QuanLyGaraOto\\UnitTest_GaraOto\\UnitTest_GaraOto.csproj": {
+    "D:\\UIT\\Testing\\da\\quanlyGaraOto\\QuanLyGaraOto\\UnitTest_GaraOto\\UnitTest_GaraOto.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Schools\\Software_Testing\\quanlyGaraOto\\QuanLyGaraOto\\UnitTest_GaraOto\\UnitTest_GaraOto.csproj",
+        "projectUniqueName": "D:\\UIT\\Testing\\da\\quanlyGaraOto\\QuanLyGaraOto\\UnitTest_GaraOto\\UnitTest_GaraOto.csproj",
         "projectName": "UnitTest_GaraOto",
-        "projectPath": "D:\\Schools\\Software_Testing\\quanlyGaraOto\\QuanLyGaraOto\\UnitTest_GaraOto\\UnitTest_GaraOto.csproj",
-        "packagesPath": "C:\\Users\\thanh\\.nuget\\packages\\",
-        "outputPath": "D:\\Schools\\Software_Testing\\quanlyGaraOto\\QuanLyGaraOto\\UnitTest_GaraOto\\obj\\",
+        "projectPath": "D:\\UIT\\Testing\\da\\quanlyGaraOto\\QuanLyGaraOto\\UnitTest_GaraOto\\UnitTest_GaraOto.csproj",
+        "packagesPath": "C:\\Users\\hoain\\.nuget\\packages\\",
+        "outputPath": "D:\\UIT\\Testing\\da\\quanlyGaraOto\\QuanLyGaraOto\\UnitTest_GaraOto\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\thanh\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\hoain\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -47,8 +38,8 @@
           "netcoreapp3.1": {
             "targetAlias": "netcoreapp3.1",
             "projectReferences": {
-              "D:\\Schools\\Software_Testing\\quanlyGaraOto\\QuanLyGaraOto\\QuanLyGaraOto\\QuanLyGaraOto.csproj": {
-                "projectPath": "D:\\Schools\\Software_Testing\\quanlyGaraOto\\QuanLyGaraOto\\QuanLyGaraOto\\QuanLyGaraOto.csproj"
+              "D:\\UIT\\Testing\\da\\quanlyGaraOto\\QuanLyGaraOto\\QuanLyGaraOto\\QuanLyGaraOto.csproj": {
+                "projectPath": "D:\\UIT\\Testing\\da\\quanlyGaraOto\\QuanLyGaraOto\\QuanLyGaraOto\\QuanLyGaraOto.csproj"
               }
             }
           }
@@ -91,7 +82,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.300\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.202\\RuntimeIdentifierGraph.json"
         }
       }
     }

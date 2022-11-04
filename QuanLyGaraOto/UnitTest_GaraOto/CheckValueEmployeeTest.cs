@@ -27,14 +27,14 @@ namespace UnitTest_GaraOto
         {
             _listUsers = new ObservableCollection<USER>()
             {
-                new USER(){ UserName = "dat"},
-                new USER(){ UserName = "kiet"},
+                new USER(){ UserName = "luan"},
+                new USER(){ UserName = "nhi"},
                 new USER(){ UserName = "nam"},
             };
             _listUsersInfo = new ObservableCollection<USER_INFO>()
             {
-                new USER_INFO(){ UserInfo_Name ="dat", UserInfo_CMND = "111" },
-                new USER_INFO(){ UserInfo_Name ="kiet", UserInfo_CMND = "222"},
+                new USER_INFO(){ UserInfo_Name ="luan", UserInfo_CMND = "111" },
+                new USER_INFO(){ UserInfo_Name ="nhi", UserInfo_CMND = "222"},
                 new USER_INFO(){ UserInfo_Name ="nam", UserInfo_CMND = "333"},
             };
 
@@ -48,7 +48,7 @@ namespace UnitTest_GaraOto
             };
             _listInputNames = new List<string>()
             {
-                "Lê Hoàng Phú",
+                "Lê Thành Luân",
                 "1235",
                 "",
                 "!@#$"
@@ -60,7 +60,7 @@ namespace UnitTest_GaraOto
             };
             _listInputBirthDates = new List<string>()
             {
-                "02/13/2001"
+                "02/12/2001"
             };
             _listInputCMNDs = new List<string>()
             {
