@@ -22,28 +22,35 @@ namespace UnitTest_GaraOto
             _functionTest = new _MainFunction();
             _listWages = new ObservableCollection<WAGE>()
             {
-                new WAGE(){ Wage_Name = "Vật Tư Việt Phát",},
-                new WAGE(){ Wage_Name = "Vật Tư ABC",},
-                new WAGE(){ Wage_Name = "Vật Tư Thành Công",},
+                new WAGE(){ Wage_Name = "Lau dọn",},
+                new WAGE(){ Wage_Name = "Sửa chữa",},
+                new WAGE(){ Wage_Name = "Thay thế phụ tùng",},
             };
 
             _listInputNames = new List<string>()
             {
-                "Vật tư Sơn Hà",
+                "Nâng cấp",
+                "Lau dọn",
+                "!@#$%",
                 "",
+                null,
             };
             _listInputValues = new List<string>()
             {
-                "100000",
-                "a",
+                "50000",
+                "0",
+                "-50000",
+                "0.25",
+                "asd",
+                "!@#$%",
                 "",
-                "-100000",
+                null,
             };
 
             _listExpectedOutputs = new List<bool>()
             {
-                false,
                 true,
+                false,
             };
         }
 
@@ -55,7 +62,7 @@ namespace UnitTest_GaraOto
                     _listInputValues[0], 
                     _listWages
                 );
-            Assert.That(add_Result, Is.EqualTo(_listExpectedOutputs[1]));
+            Assert.That(add_Result, Is.EqualTo(_listExpectedOutputs[0]));
         }
         [Test]
         public void checkValueWageUTCID02_Test()
@@ -71,31 +78,101 @@ namespace UnitTest_GaraOto
         public void checkValueWageUTCID03_Test()
         {
             bool add_Result = _functionTest.checkValueWage(
-                     _listInputNames[0],
-                     _listInputValues[2],
-                     _listWages
-                 );
-            Assert.That(add_Result, Is.EqualTo(_listExpectedOutputs[0]));
+                    _listInputNames[1],
+                    _listInputValues[0],
+                    _listWages
+                );
+            Assert.That(add_Result, Is.EqualTo(_listExpectedOutputs[1]));
         }
         [Test]
         public void checkValueWageUTCID04_Test()
         {
             bool add_Result = _functionTest.checkValueWage(
-                    _listInputNames[1],
+                    _listInputNames[2],
                     _listInputValues[0],
                     _listWages
                 );
-            Assert.That(add_Result, Is.EqualTo(_listExpectedOutputs[0]));
+            Assert.That(add_Result, Is.EqualTo(_listExpectedOutputs[1]));
         }
         [Test]
         public void checkValueWageUTCID05_Test()
+        {
+            bool add_Result = _functionTest.checkValueWage(
+                    _listInputNames[3],
+                    _listInputValues[0],
+                    _listWages
+                );
+            Assert.That(add_Result, Is.EqualTo(_listExpectedOutputs[1]));
+        }
+        [Test]
+        public void checkValueWageUTCID06_Test()
+        {
+            bool add_Result = _functionTest.checkValueWage(
+                    _listInputNames[4],
+                    _listInputValues[0],
+                    _listWages
+                );
+            Assert.That(add_Result, Is.EqualTo(_listExpectedOutputs[1]));
+        }
+        [Test]
+        public void checkValueWageUTCID07_Test()
+        {
+            bool add_Result = _functionTest.checkValueWage(
+                    _listInputNames[0],
+                    _listInputValues[2],
+                    _listWages
+                );
+            Assert.That(add_Result, Is.EqualTo(_listExpectedOutputs[1]));
+        }
+        [Test]
+        public void checkValueWageUTCID08_Test()
         {
             bool add_Result = _functionTest.checkValueWage(
                     _listInputNames[0],
                     _listInputValues[3],
                     _listWages
                 );
-            Assert.That(add_Result, Is.EqualTo(_listExpectedOutputs[0]));
+            Assert.That(add_Result, Is.EqualTo(_listExpectedOutputs[1]));
+        }
+        [Test]
+        public void checkValueWageUTCID09_Test()
+        {
+            bool add_Result = _functionTest.checkValueWage(
+                    _listInputNames[0],
+                    _listInputValues[4],
+                    _listWages
+                );
+            Assert.That(add_Result, Is.EqualTo(_listExpectedOutputs[1]));
+        }
+        [Test]
+        public void checkValueWageUTCID10_Test()
+        {
+            bool add_Result = _functionTest.checkValueWage(
+                    _listInputNames[0],
+                    _listInputValues[5],
+                    _listWages
+                );
+            Assert.That(add_Result, Is.EqualTo(_listExpectedOutputs[1]));
+        }
+        [Test]
+        public void checkValueWageUTCID11_Test()
+        {
+            bool add_Result = _functionTest.checkValueWage(
+                    _listInputNames[0],
+                    _listInputValues[6],
+                    _listWages
+                );
+            Assert.That(add_Result, Is.EqualTo(_listExpectedOutputs[1]));
+        }
+        [Test]
+        public void checkValueWageUTCID12_Test()
+        {
+            bool add_Result = _functionTest.checkValueWage(
+                    _listInputNames[0],
+                    _listInputValues[7],
+                    _listWages
+                );
+            Assert.That(add_Result, Is.EqualTo(_listExpectedOutputs[1]));
         }
     }
 }

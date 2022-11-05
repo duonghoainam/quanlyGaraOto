@@ -51,8 +51,8 @@ namespace UnitTest_GaraOto
             };
             _listInputReceptionDates = new List<string>()
             {
-                DateTime.Today.AddDays(-1).ToString(),
                 DateTime.Today.ToString(),
+                DateTime.Today.AddDays(-1).ToString(),
                 DateTime.Today.AddDays(1).ToString(),
                 "",
                 null,
@@ -96,7 +96,7 @@ namespace UnitTest_GaraOto
                     _listInputReceptionDates[1],
                     _listInputLicensePlates[0]
                 );
-            Assert.That(result, Is.EqualTo(_listExpectedOutputs[0]));
+            Assert.That(result, Is.EqualTo(_listExpectedOutputs[1]));
         }
         [Test]
         public void checkValueReceptionUTCID03_Test()

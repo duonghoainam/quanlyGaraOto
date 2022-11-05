@@ -29,21 +29,27 @@ namespace UnitTest_GaraOto
 
             _listInputNames = new List<string>()
             {
+                "Bánh xe loại 2",
                 "Bánh xe",
+                "!@#$%",
                 "",
+                null,
             };
             _listInputPrices = new List<string>()
             {
-                "100000",
-                "a",
-                "",
+                "200000",
+                "zxcvbnm",
+                "!@#$%",
+                "0",
                 "-100000",
+                "",
+                null,
             };
 
             _listExpectedOutputs = new List<bool>()
             {
-                false,
                 true,
+                false,
             };
         }
 
@@ -51,7 +57,7 @@ namespace UnitTest_GaraOto
         public void checkValueSuppliesUTCID01_Test()
         {
             bool add_Result = _functionTest.checkValueSupplies(
-                    _listInputNames[1],
+                    _listInputNames[0],
                     _listInputPrices[0], 
                     _listSupplies
                 );
@@ -61,27 +67,27 @@ namespace UnitTest_GaraOto
         public void checkValueSuppliesUTCID02_Test()
         {
             bool add_Result = _functionTest.checkValueSupplies(
-                    _listInputNames[0],
-                    _listInputPrices[1],
+                    _listInputNames[1],
+                    _listInputPrices[0],
                     _listSupplies
                 );
-            Assert.That(add_Result, Is.EqualTo(_listExpectedOutputs[0]));
+            Assert.That(add_Result, Is.EqualTo(_listExpectedOutputs[1]));
         }
         [Test]
         public void checkValueSuppliesUTCID03_Test()
         {
             bool add_Result = _functionTest.checkValueSupplies(
-                    _listInputNames[0],
-                    _listInputPrices[2],
+                    _listInputNames[2],
+                    _listInputPrices[0],
                     _listSupplies
                 );
-            Assert.That(add_Result, Is.EqualTo(_listExpectedOutputs[0]));
+            Assert.That(add_Result, Is.EqualTo(_listExpectedOutputs[1]));
         }
         [Test]
         public void checkValueSuppliesUTCID04_Test()
         {
             bool add_Result = _functionTest.checkValueSupplies(
-                    _listInputNames[0],
+                    _listInputNames[3],
                     _listInputPrices[0],
                     _listSupplies
                 );
@@ -91,11 +97,71 @@ namespace UnitTest_GaraOto
         public void checkValueSuppliesUTCID05_Test()
         {
             bool add_Result = _functionTest.checkValueSupplies(
+                    _listInputNames[4],
+                    _listInputPrices[0],
+                    _listSupplies
+                );
+            Assert.That(add_Result, Is.EqualTo(_listExpectedOutputs[1]));
+        }
+        [Test]
+        public void checkValueSuppliesUTCID06_Test()
+        {
+            bool add_Result = _functionTest.checkValueSupplies(
+                    _listInputNames[0],
+                    _listInputPrices[1],
+                    _listSupplies
+                );
+            Assert.That(add_Result, Is.EqualTo(_listExpectedOutputs[1]));
+        }
+        [Test]
+        public void checkValueSuppliesUTCID07_Test()
+        {
+            bool add_Result = _functionTest.checkValueSupplies(
+                    _listInputNames[0],
+                    _listInputPrices[2],
+                    _listSupplies
+                );
+            Assert.That(add_Result, Is.EqualTo(_listExpectedOutputs[1]));
+        }
+        [Test]
+        public void checkValueSuppliesUTCID08_Test()
+        {
+            bool add_Result = _functionTest.checkValueSupplies(
                     _listInputNames[0],
                     _listInputPrices[3],
                     _listSupplies
                 );
-            Assert.That(add_Result, Is.EqualTo(_listExpectedOutputs[0]));
+            Assert.That(add_Result, Is.EqualTo(_listExpectedOutputs[1]));
+        }
+        [Test]
+        public void checkValueSuppliesUTCID09_Test()
+        {
+            bool add_Result = _functionTest.checkValueSupplies(
+                    _listInputNames[0],
+                    _listInputPrices[4],
+                    _listSupplies
+                );
+            Assert.That(add_Result, Is.EqualTo(_listExpectedOutputs[1]));
+        }
+        [Test]
+        public void checkValueSuppliesUTCID10_Test()
+        {
+            bool add_Result = _functionTest.checkValueSupplies(
+                    _listInputNames[0],
+                    _listInputPrices[5],
+                    _listSupplies
+                );
+            Assert.That(add_Result, Is.EqualTo(_listExpectedOutputs[1]));
+        }
+        [Test]
+        public void checkValueSuppliesUTCID11_Test()
+        {
+            bool add_Result = _functionTest.checkValueSupplies(
+                    _listInputNames[0],
+                    _listInputPrices[6],
+                    _listSupplies
+                );
+            Assert.That(add_Result, Is.EqualTo(_listExpectedOutputs[1]));
         }
     }
 }
