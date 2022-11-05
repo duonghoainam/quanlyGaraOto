@@ -12,6 +12,21 @@ namespace QuanLyGaraOto.ViewModel
 {
     public class _MainFunction
     {
+        private Regex _regexVietnameseWithNumber;
+        private Regex _regexAmount;
+        private Regex _regexPhone;
+        private Regex _regexText;
+        private Regex _regexEmail;
+
+        public _MainFunction()
+        {
+            _regexVietnameseWithNumber = new Regex(@"^[0-9a-zA-Z_ÀÁÂÃÈÉÊÌÍÒÓÔÕÙÚĂĐĨŨƠàáâãèéêìíòóôõùúăđĩũơƯĂẠẢẤẦẨẪẬẮẰẲẴẶẸẺẼỀỀỂưăạảấầẩẫậắằẳẵặẹẻẽềềểỄỆỈỊỌỎỐỒỔỖỘỚỜỞỠỢỤỦỨỪễệỉịọỏốồổỗộớờởỡợụủứừỬỮỰỲỴÝỶỸửữựỳỵỷỹ ]+$");
+            _regexAmount = new Regex(@"^[1-9][0-9]*$");
+            _regexPhone = new Regex(@"^[0-9]+$");
+            _regexText = new Regex(@"^[0-9a-zA-Z -]+$");
+            _regexEmail = new Regex(@"^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$");
+        }
+
         public bool checkValueBrand(string name, 
             ObservableCollection<CAR_BRAND> list)
 
@@ -21,6 +36,7 @@ namespace QuanLyGaraOto.ViewModel
             {
                 return false;
             }
+            if (!_regexText.IsMatch(name)) return false;
             foreach (CAR_BRAND brand in list)
             {
                 if (brand.CarBrand_Name == name) return false;
@@ -50,21 +66,18 @@ namespace QuanLyGaraOto.ViewModel
         public bool checkValueSupplier(string name, string phone, string email,
             ObservableCollection<SUPPLIER> list)
         {
-            // Kiểm tra null
-            if (name == null || phone == null || email == null) return false;
-            if (string.IsNullOrEmpty(name.Trim()) || string.IsNullOrEmpty(phone.Trim())
-                || string.IsNullOrEmpty(email.Trim())) {
-                return false;
-            }
-
-            // Kiểm tra là số
-            //Regex regex = new Regex(@"^[0-9]+$");
-            //if (!regex.IsMatch(phone) && !string.IsNullOrEmpty(phone)) return false;
-
-            // Kiểm tra trùng
+            if (name == null 
+                || phone == null 
+                || email == null) return false;
+            if (string.IsNullOrEmpty(name.Trim()) 
+                || string.IsNullOrEmpty(phone.Trim())
+                || string.IsNullOrEmpty(email.Trim())) return false;
+            if (!this._regexPhone.IsMatch(phone) 
+                || !this._regexVietnameseWithNumber.IsMatch(name)
+                || !this._regexEmail.IsMatch(email)) return false;
             foreach (SUPPLIER item in list)
             {
-                if (item.Supplier_Name == name) return false;
+                if (item.Supplier_Name.ToLower() == name.ToLower()) return false;
             }
             return true;
         }
@@ -93,7 +106,6 @@ namespace QuanLyGaraOto.ViewModel
         public bool checkValueReception(string name, string phone, 
             string address, string brand, string receptionDate, string LicensePlate)
         {
-            // Kiểm tra null
             if (string.IsNullOrEmpty(name)
                     || string.IsNullOrEmpty(phone)
                     || string.IsNullOrEmpty(address)
@@ -103,15 +115,11 @@ namespace QuanLyGaraOto.ViewModel
                 return false;
             }
 
-            // Kiểm tra là số
-            Regex regex = new Regex(@"^[0-9]+$");
-            if (!regex.IsMatch(phone) && !string.IsNullOrEmpty(phone)) return false;
-            try
-            {
-                DateTime result = DateTime.Now;
-                if (!DateTime.TryParse(receptionDate, out result)) return false;
-            }
-            catch
+            if (!_regexPhone.IsMatch(phone) && !string.IsNullOrEmpty(phone)) return false;
+            
+            DateTime result = DateTime.Now;
+            if (!DateTime.TryParse(receptionDate, out result)) return false;
+            if (DateTime.Compare(result, DateTime.Today) > 0)
             {
                 return false;
             }
@@ -211,15 +219,10 @@ namespace QuanLyGaraOto.ViewModel
             {
                 return false;
             }
-            try
-            {
-                DateTime result = DateTime.Now;
-                if (!DateTime.TryParse(importDate, out result)) return false;
-            }
-            catch
-            {
-                return false;
-            }
+            DateTime result = DateTime.Today;
+            if (!DateTime.TryParse(importDate, out result)) return false;
+            if (DateTime.Compare(result, DateTime.Today) != 0) return false;
+            
             return true;
         }
         public bool checkValueDetailImportSupplies(string name, string price, string amount)
@@ -230,10 +233,10 @@ namespace QuanLyGaraOto.ViewModel
             {
                 return false;
             }
-            Regex regex = new Regex(@"^[0-9]+$");
-            if (!regex.IsMatch(price) && !string.IsNullOrEmpty(price)) return false;
-            if (!regex.IsMatch(amount) && !string.IsNullOrEmpty(amount)) return false;
-            return true;
+
+            return this._regexAmount.IsMatch(price) 
+                && this._regexAmount.IsMatch(amount) 
+                && this._regexVietnameseWithNumber.IsMatch(name);
         }
     }
    
