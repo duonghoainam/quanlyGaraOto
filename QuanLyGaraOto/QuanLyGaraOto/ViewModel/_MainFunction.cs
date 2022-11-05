@@ -48,20 +48,20 @@ namespace QuanLyGaraOto.ViewModel
         public bool checkValueSupplies(string name, string price,
             ObservableCollection<SUPPLIES> list)
         {
-            // Kiểm tra null
+            if (name == null
+                || price == null) return false;
+
             if (string.IsNullOrEmpty(name.Trim()) 
                 || string.IsNullOrEmpty(price.Trim())){
                 return false;
             }
 
-            // Kiểm tra là số
-            Regex regex = new Regex(@"^[0-9]+$");
-            if (!regex.IsMatch(price) && !string.IsNullOrEmpty(price)) return false;
+            if (!this._regexAmount.IsMatch(price)
+                || !this._regexVietnameseWithNumber.IsMatch(name)) return false;
 
-            // Kiểm tra trùng
             foreach (SUPPLIES supplies in list)
             {
-                if ( supplies.Supplies_Name == name) return false;
+                if ( supplies.Supplies_Name.ToLower() == name.ToLower()) return false;
             }
             return true;
         }
@@ -86,22 +86,16 @@ namespace QuanLyGaraOto.ViewModel
         public bool checkValueWage(string name, string price,
             ObservableCollection<WAGE> list)
         {
-            // Kiểm tra null
+            if (name == null || price == null) return false;
             if (string.IsNullOrEmpty(name.Trim())
-                || string.IsNullOrEmpty(price.Trim()))
-            {
-                return false;
-            }
+                || string.IsNullOrEmpty(price.Trim())) return false;
 
-            
-            // Kiểm tra là số
-            //Regex regex = new Regex(@"^[0-9]+$");
-            //if (!regex.IsMatch(price) && !string.IsNullOrEmpty(price)) return false;
+            if (!this._regexPhone.IsMatch(price)
+                || !this._regexVietnameseWithNumber.IsMatch(name)) return false;
 
-            // Kiểm tra trùng
             foreach (WAGE item in list)
             {
-                if (item.Wage_Name == name) return false;
+                if (item.Wage_Name.ToLower() == name.ToLower()) return false;
             }
             return true;
         }
@@ -127,57 +121,6 @@ namespace QuanLyGaraOto.ViewModel
             }
             return true;
         }
-        //public bool checkValueRepair(string idReception, string repairDate)
-        //{
-        //    // Kiểm tra null
-        //    if (string.IsNullOrEmpty(idReception)
-        //            || string.IsNullOrEmpty(repairDate))
-        //    {
-        //        return false;
-        //    }
-        //    try
-        //    {
-        //        DateTime result = DateTime.Now;
-        //        if (!DateTime.TryParse(repairDate, out result)) return false;
-        //    }
-        //    catch
-        //    {
-        //        return false;
-        //    }
-        //    return true;
-        //}
-        //public bool checkValueDetailRepair(string name, string supplies,
-        //    string amount, string wage)
-        //{
-        //    // Kiểm tra null
-        //    if (string.IsNullOrEmpty(name)
-        //            || string.IsNullOrEmpty(name)
-        //            || string.IsNullOrEmpty(supplies)
-        //            || string.IsNullOrEmpty(amount)
-        //            || string.IsNullOrEmpty(wage))
-        //    {
-        //        return false;
-        //    }
-
-        //    // Kiểm tra là số
-        //    Regex regex = new Regex(@"^[0-9]+$");
-        //    if (!regex.IsMatch(amount) && !string.IsNullOrEmpty(amount)) return false;
-        //    return true;
-        //}
-        //public bool checkValueReceipt(string money, string receiptDate,string email)
-        //{
-        //    if (string.IsNullOrEmpty(money)
-        //            || string.IsNullOrEmpty(receiptDate)
-        //            || string.IsNullOrEmpty(email))
-        //    {
-        //        return false;
-        //    }
-
-        //    // Kiểm tra là số
-        //    Regex regex = new Regex(@"^[0-9]+$");
-        //    if (!regex.IsMatch(money) && !string.IsNullOrEmpty(money)) return false;
-        //    return true;
-        //}
         public bool checkValueEmployee(string accountName, string name,
             string role, string birthDate, string cmnd, string phone, string address,
             ObservableCollection<USER> listUser, ObservableCollection<USER_INFO> listUserInfo)
