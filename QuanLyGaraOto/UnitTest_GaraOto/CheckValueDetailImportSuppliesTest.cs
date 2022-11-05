@@ -23,23 +23,31 @@ namespace UnitTest_GaraOto
 
             _listInputNames = new List<string>()
             {
-                "",
                 "Nhớt Alpha Boost",
+                "Xăng RON95",
+                "$$$",
+                null,
+                "",
             };
             _listInputPrices = new List<string>()
             {
-                "",
-                "abc",
-                "-1",
+                "100000",
+                "-100000",
                 "0",
-                "10000",
+                "0.25",
+                "abc",
+                null,
+                "",
             };
             _listInputAmounts = new List<string>()
             {
-                "",
-                "abc",
-                "-1",
+                "10",
                 "0",
+                "-10",
+                "0.25",
+                "abc",
+                null,
+                "",
             };
 
             _listExpectedOutputs = new List<bool>()
@@ -53,29 +61,29 @@ namespace UnitTest_GaraOto
         public void checkValueDetailImportSuppliesUTCID01_Test()
         {
             bool add_Result = _functionTest.checkValueDetailImportSupplies(
-                _listInputNames[0],
-                _listInputPrices[4],
-                _listInputAmounts[3]
+                    _listInputNames[0],
+                    _listInputPrices[0],
+                    _listInputAmounts[0]
                 );
-            Assert.That(add_Result, Is.EqualTo(_listExpectedOutputs[1]));
+            Assert.That(add_Result, Is.EqualTo(_listExpectedOutputs[0]));
         }
         [Test]
         public void checkValueDetailImportSuppliesUTCID02_Test()
         {
             bool add_Result = _functionTest.checkValueDetailImportSupplies(
-                _listInputNames[1],
-                _listInputPrices[0],
-                _listInputAmounts[3]
+                    _listInputNames[1],
+                    _listInputPrices[0],
+                    _listInputAmounts[0]
                 );
-            Assert.That(add_Result, Is.EqualTo(_listExpectedOutputs[1]));
+            Assert.That(add_Result, Is.EqualTo(_listExpectedOutputs[0]));
         }
         [Test]
         public void checkValueDetailImportSuppliesUTCID03_Test()
         {
             bool add_Result = _functionTest.checkValueDetailImportSupplies(
-                _listInputNames[1],
-                _listInputPrices[4],
-                _listInputAmounts[0]
+                    _listInputNames[2],
+                    _listInputPrices[0],
+                    _listInputAmounts[0]
                 );
             Assert.That(add_Result, Is.EqualTo(_listExpectedOutputs[1]));
         }
@@ -83,9 +91,9 @@ namespace UnitTest_GaraOto
         public void checkValueDetailImportSuppliesUTCID04_Test()
         {
             bool add_Result = _functionTest.checkValueDetailImportSupplies(
-                _listInputNames[1],
-                _listInputPrices[1],
-                _listInputAmounts[3]
+                    _listInputNames[3],
+                    _listInputPrices[0],
+                    _listInputAmounts[0]
                 );
             Assert.That(add_Result, Is.EqualTo(_listExpectedOutputs[1]));
         }
@@ -93,29 +101,29 @@ namespace UnitTest_GaraOto
         public void checkValueDetailImportSuppliesUTCID05_Test()
         {
             bool add_Result = _functionTest.checkValueDetailImportSupplies(
-                 _listInputNames[1],
-                 _listInputPrices[4],
-                 _listInputAmounts[1]
-                 );
+                    _listInputNames[4],
+                    _listInputPrices[0],
+                    _listInputAmounts[0]
+                );
             Assert.That(add_Result, Is.EqualTo(_listExpectedOutputs[1]));
         }
         [Test]
         public void checkValueDetailImportSuppliesUTCID06_Test()
         {
             bool add_Result = _functionTest.checkValueDetailImportSupplies(
-                _listInputNames[1],
-                _listInputPrices[2],
-                _listInputAmounts[3]
+                    _listInputNames[0],
+                    _listInputPrices[1],
+                    _listInputAmounts[0]
                 );
-            Assert.That(add_Result, Is.EqualTo(_listExpectedOutputs[0]));
+            Assert.That(add_Result, Is.EqualTo(_listExpectedOutputs[1]));
         }
         [Test]
         public void checkValueDetailImportSuppliesUTCID07_Test()
         {
             bool add_Result = _functionTest.checkValueDetailImportSupplies(
-                _listInputNames[1],
-                _listInputPrices[3],
-                _listInputAmounts[3]
+                    _listInputNames[0],
+                    _listInputPrices[2],
+                    _listInputAmounts[0]
                 );
             Assert.That(add_Result, Is.EqualTo(_listExpectedOutputs[1]));
         }
@@ -123,9 +131,9 @@ namespace UnitTest_GaraOto
         public void checkValueDetailImportSuppliesUTCID08_Test()
         {
             bool add_Result = _functionTest.checkValueDetailImportSupplies(
-                _listInputNames[1],
-                _listInputPrices[4],
-                _listInputAmounts[1]
+                    _listInputNames[0],
+                    _listInputPrices[3],
+                    _listInputAmounts[0]
                 );
             Assert.That(add_Result, Is.EqualTo(_listExpectedOutputs[1]));
         }
@@ -133,21 +141,91 @@ namespace UnitTest_GaraOto
         public void checkValueDetailImportSuppliesUTCID09_Test()
         {
             bool add_Result = _functionTest.checkValueDetailImportSupplies(
-                _listInputNames[1],
-                _listInputPrices[4],
-                _listInputAmounts[2]
+                    _listInputNames[0],
+                    _listInputPrices[4],
+                    _listInputAmounts[0]
                 );
-            Assert.That(add_Result, Is.EqualTo(_listExpectedOutputs[0]));
+            Assert.That(add_Result, Is.EqualTo(_listExpectedOutputs[1]));
         }
         [Test]
         public void checkValueDetailImportSuppliesUTCID10_Test()
         {
             bool add_Result = _functionTest.checkValueDetailImportSupplies(
-                 _listInputNames[1],
-                 _listInputPrices[4],
-                 _listInputAmounts[3]
-                 );
-            Assert.That(add_Result, Is.EqualTo(_listExpectedOutputs[0]));
+                    _listInputNames[0],
+                    _listInputPrices[5],
+                    _listInputAmounts[0]
+                );
+            Assert.That(add_Result, Is.EqualTo(_listExpectedOutputs[1]));
+        }
+        [Test]
+        public void checkValueDetailImportSuppliesUTCID11_Test()
+        {
+            bool add_Result = _functionTest.checkValueDetailImportSupplies(
+                    _listInputNames[0],
+                    _listInputPrices[6],
+                    _listInputAmounts[0]
+                );
+            Assert.That(add_Result, Is.EqualTo(_listExpectedOutputs[1]));
+        }
+        [Test]
+        public void checkValueDetailImportSuppliesUTCID12_Test()
+        {
+            bool add_Result = _functionTest.checkValueDetailImportSupplies(
+                    _listInputNames[0],
+                    _listInputPrices[0],
+                    _listInputAmounts[1]
+                );
+            Assert.That(add_Result, Is.EqualTo(_listExpectedOutputs[1]));
+        }
+        [Test]
+        public void checkValueDetailImportSuppliesUTCID13_Test()
+        {
+            bool add_Result = _functionTest.checkValueDetailImportSupplies(
+                    _listInputNames[0],
+                    _listInputPrices[0],
+                    _listInputAmounts[2]
+                );
+            Assert.That(add_Result, Is.EqualTo(_listExpectedOutputs[1]));
+        }
+        [Test]
+        public void checkValueDetailImportSuppliesUTCID14_Test()
+        {
+            bool add_Result = _functionTest.checkValueDetailImportSupplies(
+                    _listInputNames[0],
+                    _listInputPrices[0],
+                    _listInputAmounts[3]
+                );
+            Assert.That(add_Result, Is.EqualTo(_listExpectedOutputs[1]));
+        }
+        [Test]
+        public void checkValueDetailImportSuppliesUTCID15_Test()
+        {
+            bool add_Result = _functionTest.checkValueDetailImportSupplies(
+                    _listInputNames[0],
+                    _listInputPrices[0],
+                    _listInputAmounts[4]
+                );
+            Assert.That(add_Result, Is.EqualTo(_listExpectedOutputs[1]));
+        }
+        [Test]
+        public void checkValueDetailImportSuppliesUTCID16_Test()
+        {
+            bool add_Result = _functionTest.checkValueDetailImportSupplies(
+                    _listInputNames[0],
+                    _listInputPrices[0],
+                    _listInputAmounts[5]
+                );
+            Assert.That(add_Result, Is.EqualTo(_listExpectedOutputs[1]));
+        }
+        [Test]
+        public void checkValueDetailImportSuppliesUTCID17_Test()
+        {
+            bool add_Result = _functionTest.checkValueDetailImportSupplies(
+                    _listInputNames[0],
+                    _listInputPrices[0],
+                    _listInputAmounts[6]
+                );
+            Assert.That(add_Result, Is.EqualTo(_listExpectedOutputs[1]));
         }
     }
 }

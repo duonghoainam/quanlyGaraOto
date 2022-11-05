@@ -27,33 +27,41 @@ namespace UnitTest_GaraOto
             _listInputNames = new List<string>()
             {
                 "Luan",
+                null,
                 "",
             };
             _listInputPhones = new List<string>()
             {
                 "099554499",
                 "",
+                null,
                 "09cxsxsx",
             };
             _listInputAddresses = new List<string>()
             {
                 "Tien Giang",
+                null,
                 "",
             };
             _listInputBrands = new List<string>()
             {
                 "Toyota",
+                null,
                 "",
             };
             _listInputReceptionDates = new List<string>()
             {
-                DateTime.Now.ToString(),
+                DateTime.Today.AddDays(-1).ToString(),
+                DateTime.Today.ToString(),
+                DateTime.Today.AddDays(1).ToString(),
                 "",
+                null,
                 "abc",
             };
             _listInputLicensePlates = new List<string>()
             {
                 "55-XX-0000",
+                null,
                 "",
             };
 
@@ -68,12 +76,12 @@ namespace UnitTest_GaraOto
         public void checkValueReceptionUTCID01_Test()
         {
             bool result = _functionTest.checkValueReception(
-                _listInputNames[0],
-                _listInputPhones[0],
-                _listInputAddresses[0],
-                _listInputBrands[0],
-                _listInputReceptionDates[0],
-                _listInputLicensePlates[0]
+                    _listInputNames[0],
+                    _listInputPhones[0],
+                    _listInputAddresses[0],
+                    _listInputBrands[0],
+                    _listInputReceptionDates[0],
+                    _listInputLicensePlates[0]
                 );
             Assert.That(result, Is.EqualTo(_listExpectedOutputs[0]));
         }
@@ -81,25 +89,25 @@ namespace UnitTest_GaraOto
         public void checkValueReceptionUTCID02_Test()
         {
             bool result = _functionTest.checkValueReception(
-                _listInputNames[1],
-                _listInputPhones[0],
-                _listInputAddresses[0],
-                _listInputBrands[0],
-                _listInputReceptionDates[0],
-                _listInputLicensePlates[0]
+                    _listInputNames[0],
+                    _listInputPhones[0],
+                    _listInputAddresses[0],
+                    _listInputBrands[0],
+                    _listInputReceptionDates[1],
+                    _listInputLicensePlates[0]
                 );
-            Assert.That(result, Is.EqualTo(_listExpectedOutputs[1]));
+            Assert.That(result, Is.EqualTo(_listExpectedOutputs[0]));
         }
         [Test]
         public void checkValueReceptionUTCID03_Test()
         {
             bool result = _functionTest.checkValueReception(
-                _listInputNames[0],
-                _listInputPhones[0],
-                _listInputAddresses[0],
-                _listInputBrands[0],
-                _listInputReceptionDates[0],
-                _listInputLicensePlates[1]
+                    _listInputNames[1],
+                    _listInputPhones[0],
+                    _listInputAddresses[0],
+                    _listInputBrands[0],
+                    _listInputReceptionDates[0],
+                    _listInputLicensePlates[0]
                 );
             Assert.That(result, Is.EqualTo(_listExpectedOutputs[1]));
         }
@@ -107,12 +115,12 @@ namespace UnitTest_GaraOto
         public void checkValueReceptionUTCID04_Test()
         {
             bool result = _functionTest.checkValueReception(
-                _listInputNames[0],
-                _listInputPhones[0],
-                _listInputAddresses[0],
-                _listInputBrands[1],
-                _listInputReceptionDates[0],
-                _listInputLicensePlates[0]
+                    _listInputNames[2],
+                    _listInputPhones[0],
+                    _listInputAddresses[0],
+                    _listInputBrands[0],
+                    _listInputReceptionDates[0],
+                    _listInputLicensePlates[0]
                 );
             Assert.That(result, Is.EqualTo(_listExpectedOutputs[1]));
         }
@@ -120,12 +128,12 @@ namespace UnitTest_GaraOto
         public void checkValueReceptionUTCID05_Test()
         {
             bool result = _functionTest.checkValueReception(
-                _listInputNames[0],
-                _listInputPhones[0],
-                _listInputAddresses[1],
-                _listInputBrands[0],
-                _listInputReceptionDates[0],
-                _listInputLicensePlates[0]
+                    _listInputNames[0],
+                    _listInputPhones[0],
+                    _listInputAddresses[0],
+                    _listInputBrands[0],
+                    _listInputReceptionDates[0],
+                    _listInputLicensePlates[1]
                 );
             Assert.That(result, Is.EqualTo(_listExpectedOutputs[1]));
         }
@@ -133,12 +141,12 @@ namespace UnitTest_GaraOto
         public void checkValueReceptionUTCID06_Test()
         {
             bool result = _functionTest.checkValueReception(
-                _listInputNames[0],
-                _listInputPhones[1],
-                _listInputAddresses[0],
-                _listInputBrands[0],
-                _listInputReceptionDates[0],
-                _listInputLicensePlates[0]
+                    _listInputNames[0],
+                    _listInputPhones[0],
+                    _listInputAddresses[0],
+                    _listInputBrands[0],
+                    _listInputReceptionDates[0],
+                    _listInputLicensePlates[2]
                 );
             Assert.That(result, Is.EqualTo(_listExpectedOutputs[1]));
         }
@@ -146,12 +154,12 @@ namespace UnitTest_GaraOto
         public void checkValueReceptionUTCID07_Test()
         {
             bool result = _functionTest.checkValueReception(
-                _listInputNames[0],
-                _listInputPhones[2],
-                _listInputAddresses[0],
-                _listInputBrands[0],
-                _listInputReceptionDates[0],
-                _listInputLicensePlates[0]
+                    _listInputNames[0],
+                    _listInputPhones[0],
+                    _listInputAddresses[0],
+                    _listInputBrands[1],
+                    _listInputReceptionDates[0],
+                    _listInputLicensePlates[0]
                 );
             Assert.That(result, Is.EqualTo(_listExpectedOutputs[1]));
         }
@@ -160,12 +168,12 @@ namespace UnitTest_GaraOto
         public void checkValueReceptionUTCID08_Test()
         {
             bool result = _functionTest.checkValueReception(
-                _listInputNames[0],
-                _listInputPhones[0],
-                _listInputAddresses[0],
-                _listInputBrands[0],
-                _listInputReceptionDates[1],
-                _listInputLicensePlates[0]
+                    _listInputNames[0],
+                    _listInputPhones[0],
+                    _listInputAddresses[0],
+                    _listInputBrands[2],
+                    _listInputReceptionDates[0],
+                    _listInputLicensePlates[0]
                 );
             Assert.That(result, Is.EqualTo(_listExpectedOutputs[1]));
         }
@@ -174,12 +182,12 @@ namespace UnitTest_GaraOto
         public void checkValueReceptionUTCID09_Test()
         {
             bool result = _functionTest.checkValueReception(
-                _listInputNames[0],
-                _listInputPhones[0],
-                _listInputAddresses[0],
-                _listInputBrands[0],
-                _listInputReceptionDates[2],
-                _listInputLicensePlates[0]
+                    _listInputNames[0],
+                    _listInputPhones[0],
+                    _listInputAddresses[1],
+                    _listInputBrands[0],
+                    _listInputReceptionDates[0],
+                    _listInputLicensePlates[0]
                 );
             Assert.That(result, Is.EqualTo(_listExpectedOutputs[1]));
         }
@@ -187,12 +195,12 @@ namespace UnitTest_GaraOto
         public void checkValueReceptionUTCID10_Test()
         {
             bool result = _functionTest.checkValueReception(
-                _listInputNames[1],
-                _listInputPhones[1],
-                _listInputAddresses[1],
-                _listInputBrands[1],
-                _listInputReceptionDates[1],
-                _listInputLicensePlates[1]
+                    _listInputNames[0],
+                    _listInputPhones[0],
+                    _listInputAddresses[2],
+                    _listInputBrands[0],
+                    _listInputReceptionDates[0],
+                    _listInputLicensePlates[0]
                 );
             Assert.That(result, Is.EqualTo(_listExpectedOutputs[1]));
         }
@@ -200,12 +208,12 @@ namespace UnitTest_GaraOto
         public void checkValueReceptionUTCID11_Test()
         {
             bool result = _functionTest.checkValueReception(
-                _listInputNames[1],
-                _listInputPhones[2],
-                _listInputAddresses[1],
-                _listInputBrands[1],
-                _listInputReceptionDates[1],
-                _listInputLicensePlates[1]
+                    _listInputNames[0],
+                    _listInputPhones[1],
+                    _listInputAddresses[0],
+                    _listInputBrands[0],
+                    _listInputReceptionDates[0],
+                    _listInputLicensePlates[0]
                 );
             Assert.That(result, Is.EqualTo(_listExpectedOutputs[1]));
         }
@@ -213,12 +221,12 @@ namespace UnitTest_GaraOto
         public void checkValueReceptionUTCID12_Test()
         {
             bool result = _functionTest.checkValueReception(
-                _listInputNames[1],
-                _listInputPhones[1],
-                _listInputAddresses[1],
-                _listInputBrands[1],
-                _listInputReceptionDates[2],
-                _listInputLicensePlates[1]
+                    _listInputNames[0],
+                    _listInputPhones[2],
+                    _listInputAddresses[0],
+                    _listInputBrands[0],
+                    _listInputReceptionDates[0],
+                    _listInputLicensePlates[0]
                 );
             Assert.That(result, Is.EqualTo(_listExpectedOutputs[1]));
         }
@@ -226,12 +234,64 @@ namespace UnitTest_GaraOto
         public void checkValueReceptionUTCID13_Test()
         {
             bool result = _functionTest.checkValueReception(
-                _listInputNames[1],
-                _listInputPhones[2],
-                _listInputAddresses[1],
-                _listInputBrands[1],
-                _listInputReceptionDates[2],
-                _listInputLicensePlates[1]
+                    _listInputNames[0],
+                    _listInputPhones[3],
+                    _listInputAddresses[0],
+                    _listInputBrands[0],
+                    _listInputReceptionDates[0],
+                    _listInputLicensePlates[0]
+                );
+            Assert.That(result, Is.EqualTo(_listExpectedOutputs[1]));
+        }
+        [Test]
+        public void checkValueReceptionUTCID14_Test()
+        {
+            bool result = _functionTest.checkValueReception(
+                    _listInputNames[0],
+                    _listInputPhones[0],
+                    _listInputAddresses[0],
+                    _listInputBrands[0],
+                    _listInputReceptionDates[2],
+                    _listInputLicensePlates[0]
+                );
+            Assert.That(result, Is.EqualTo(_listExpectedOutputs[1]));
+        }
+        [Test]
+        public void checkValueReceptionUTCID15_Test()
+        {
+            bool result = _functionTest.checkValueReception(
+                    _listInputNames[0],
+                    _listInputPhones[0],
+                    _listInputAddresses[0],
+                    _listInputBrands[0],
+                    _listInputReceptionDates[3],
+                    _listInputLicensePlates[0]
+                );
+            Assert.That(result, Is.EqualTo(_listExpectedOutputs[1]));
+        }
+        [Test]
+        public void checkValueReceptionUTCID16_Test()
+        {
+            bool result = _functionTest.checkValueReception(
+                    _listInputNames[0],
+                    _listInputPhones[0],
+                    _listInputAddresses[0],
+                    _listInputBrands[0],
+                    _listInputReceptionDates[4],
+                    _listInputLicensePlates[0]
+                );
+            Assert.That(result, Is.EqualTo(_listExpectedOutputs[1]));
+        }
+        [Test]
+        public void checkValueReceptionUTCID17_Test()
+        {
+            bool result = _functionTest.checkValueReception(
+                    _listInputNames[0],
+                    _listInputPhones[0],
+                    _listInputAddresses[0],
+                    _listInputBrands[0],
+                    _listInputReceptionDates[5],
+                    _listInputLicensePlates[0]
                 );
             Assert.That(result, Is.EqualTo(_listExpectedOutputs[1]));
         }
