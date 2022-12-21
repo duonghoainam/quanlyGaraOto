@@ -45,32 +45,26 @@ namespace UnitTest_GaraOto
                 "lethanhluan",
                 "nam",
                 "!@#$%",
-                "",
                 null,
             };
             _listInputNames = new List<string>()
             {
                 "Lê Thành Luân",
-                "1235",
                 "!@#$%",
-                "",
                 null,
             };
             _listInputRoles = new List<string>()
             {
                 "Nhân viên loại 1",
                 "!@#$%",
-                "",
                 null,
             };
             _listInputBirthDates = new List<string>()
             {
                 "02/13/2001",
-                DateTime.Today.AddDays(-18*365).ToString(),
                 DateTime.Today.AddDays(-1800).ToString(),
                 DateTime.Today.AddDays(2000).ToString(),
                 "abc",
-                "",
                 null,
             };
             _listInputCMNDs = new List<string>()
@@ -78,20 +72,17 @@ namespace UnitTest_GaraOto
                 "0123456789",
                 "111",
                 "zxcvbnm",
-                "",
                 null,
             };
             _listInputPhones = new List<string>()
             {
                 "0987654321",
                 "adfgqw9",
-                "",
                 null,
             };
             _listInputAddresses = new List<string>()
             {
                 "Cà Mau",
-                "",
                 null,
             };
 
@@ -122,22 +113,6 @@ namespace UnitTest_GaraOto
         public void checkValueEmployeeUTCID02_Test()
         {
             bool add_Result = _functionTest.checkValueEmployee(
-                    _listInputAccountNames[0],
-                    _listInputNames[0],
-                    _listInputRoles[0],
-                    _listInputBirthDates[1],
-                    _listInputCMNDs[0],
-                    _listInputPhones[0],
-                    _listInputAddresses[0],
-                    _listUsers,
-                    _listUsersInfo
-                );
-            Assert.That(add_Result, Is.EqualTo(_listOuputs[0]));
-        }
-        [Test]
-        public void checkValueEmployeeUTCID03_Test()
-        {
-            bool add_Result = _functionTest.checkValueEmployee(
                     _listInputAccountNames[1],
                     _listInputNames[0],
                     _listInputRoles[0],
@@ -151,7 +126,7 @@ namespace UnitTest_GaraOto
             Assert.That(add_Result, Is.EqualTo(_listOuputs[1]));
         }
         [Test]
-        public void checkValueEmployeeUTCID04_Test()
+        public void checkValueEmployeeUTCID03_Test()
         {
             bool add_Result = _functionTest.checkValueEmployee(
                     _listInputAccountNames[2],
@@ -167,7 +142,7 @@ namespace UnitTest_GaraOto
             Assert.That(add_Result, Is.EqualTo(_listOuputs[1]));
         }
         [Test]
-        public void checkValueEmployeeUTCID05_Test()
+        public void checkValueEmployeeUTCID04_Test()
         {
             bool add_Result = _functionTest.checkValueEmployee(
                     _listInputAccountNames[3],
@@ -183,23 +158,7 @@ namespace UnitTest_GaraOto
             Assert.That(add_Result, Is.EqualTo(_listOuputs[1]));
         }
         [Test]
-        public void checkValueEmployeeUTCID06_Test()
-        {
-            bool add_Result = _functionTest.checkValueEmployee(
-                    _listInputAccountNames[4],
-                    _listInputNames[0],
-                    _listInputRoles[0],
-                    _listInputBirthDates[0],
-                    _listInputCMNDs[0],
-                    _listInputPhones[0],
-                    _listInputAddresses[0],
-                    _listUsers,
-                    _listUsersInfo
-                );
-            Assert.That(add_Result, Is.EqualTo(_listOuputs[1]));
-        }
-        [Test]
-        public void checkValueEmployeeUTCID07_Test()
+        public void checkValueEmployeeUTCID05_Test()
         {
             bool add_Result = _functionTest.checkValueEmployee(
                     _listInputAccountNames[0],
@@ -215,7 +174,7 @@ namespace UnitTest_GaraOto
             Assert.That(add_Result, Is.EqualTo(_listOuputs[1]));
         }
         [Test]
-        public void checkValueEmployeeUTCID08_Test()
+        public void checkValueEmployeeUTCID06_Test()
         {
             bool add_Result = _functionTest.checkValueEmployee(
                     _listInputAccountNames[0],
@@ -231,39 +190,7 @@ namespace UnitTest_GaraOto
             Assert.That(add_Result, Is.EqualTo(_listOuputs[1]));
         }
         [Test]
-        public void checkValueEmployeeUTCID09_Test()
-        {
-            bool add_Result = _functionTest.checkValueEmployee(
-                    _listInputAccountNames[0],
-                    _listInputNames[3],
-                    _listInputRoles[0],
-                    _listInputBirthDates[0],
-                    _listInputCMNDs[0],
-                    _listInputPhones[0],
-                    _listInputAddresses[0],
-                    _listUsers,
-                    _listUsersInfo
-                );
-            Assert.That(add_Result, Is.EqualTo(_listOuputs[1]));
-        }
-        [Test]
-        public void checkValueEmployeeUTCID10_Test()
-        {
-            bool add_Result = _functionTest.checkValueEmployee(
-                    _listInputAccountNames[0],
-                    _listInputNames[4],
-                    _listInputRoles[0],
-                    _listInputBirthDates[0],
-                    _listInputCMNDs[0],
-                    _listInputPhones[0],
-                    _listInputAddresses[0],
-                    _listUsers,
-                    _listUsersInfo
-                );
-            Assert.That(add_Result, Is.EqualTo(_listOuputs[1]));
-        }
-        [Test]
-        public void checkValueEmployeeUTCID11_Test()
+        public void checkValueEmployeeUTCID07_Test()
         {
             bool add_Result = _functionTest.checkValueEmployee(
                     _listInputAccountNames[0],
@@ -279,7 +206,7 @@ namespace UnitTest_GaraOto
             Assert.That(add_Result, Is.EqualTo(_listOuputs[1]));
         }
         [Test]
-        public void checkValueEmployeeUTCID12_Test()
+        public void checkValueEmployeeUTCID08_Test()
         {
             bool add_Result = _functionTest.checkValueEmployee(
                     _listInputAccountNames[0],
@@ -295,13 +222,13 @@ namespace UnitTest_GaraOto
             Assert.That(add_Result, Is.EqualTo(_listOuputs[1]));
         }
         [Test]
-        public void checkValueEmployeeUTCID13_Test()
+        public void checkValueEmployeeUTCID09_Test()
         {
             bool add_Result = _functionTest.checkValueEmployee(
                     _listInputAccountNames[0],
                     _listInputNames[0],
-                    _listInputRoles[3],
-                    _listInputBirthDates[0],
+                    _listInputRoles[0],
+                    _listInputBirthDates[1],
                     _listInputCMNDs[0],
                     _listInputPhones[0],
                     _listInputAddresses[0],
@@ -311,7 +238,7 @@ namespace UnitTest_GaraOto
             Assert.That(add_Result, Is.EqualTo(_listOuputs[1]));
         }
         [Test]
-        public void checkValueEmployeeUTCID14_Test()
+        public void checkValueEmployeeUTCID10_Test()
         {
             bool add_Result = _functionTest.checkValueEmployee(
                     _listInputAccountNames[0],
@@ -327,10 +254,10 @@ namespace UnitTest_GaraOto
             Assert.That(add_Result, Is.EqualTo(_listOuputs[1]));
         }
         [Test]
-        public void checkValueEmployeeUTCID15_Test()
+        public void checkValueEmployeeUTCID11_Test()
         {
             bool add_Result = _functionTest.checkValueEmployee(
-                _listInputAccountNames[0],
+                    _listInputAccountNames[0],
                     _listInputNames[0],
                     _listInputRoles[0],
                     _listInputBirthDates[3],
@@ -343,10 +270,10 @@ namespace UnitTest_GaraOto
             Assert.That(add_Result, Is.EqualTo(_listOuputs[1]));
         }
         [Test]
-        public void checkValueEmployeeUTCID16_Test()
+        public void checkValueEmployeeUTCID12_Test()
         {
             bool add_Result = _functionTest.checkValueEmployee(
-                _listInputAccountNames[0],
+                    _listInputAccountNames[0],
                     _listInputNames[0],
                     _listInputRoles[0],
                     _listInputBirthDates[4],
@@ -359,39 +286,7 @@ namespace UnitTest_GaraOto
             Assert.That(add_Result, Is.EqualTo(_listOuputs[1]));
         }
         [Test]
-        public void checkValueEmployeeUTCID17_Test()
-        {
-            bool add_Result = _functionTest.checkValueEmployee(
-                _listInputAccountNames[0],
-                    _listInputNames[0],
-                    _listInputRoles[0],
-                    _listInputBirthDates[5],
-                    _listInputCMNDs[0],
-                    _listInputPhones[0],
-                    _listInputAddresses[0],
-                    _listUsers,
-                    _listUsersInfo
-                );
-            Assert.That(add_Result, Is.EqualTo(_listOuputs[1]));
-        }
-        [Test]
-        public void checkValueEmployeeUTCID18_Test()
-        {
-            bool add_Result = _functionTest.checkValueEmployee(
-                _listInputAccountNames[0],
-                    _listInputNames[0],
-                    _listInputRoles[0],
-                    _listInputBirthDates[6],
-                    _listInputCMNDs[0],
-                    _listInputPhones[0],
-                    _listInputAddresses[0],
-                    _listUsers,
-                    _listUsersInfo
-                );
-            Assert.That(add_Result, Is.EqualTo(_listOuputs[1]));
-        }
-        [Test]
-        public void checkValueEmployeeUTCID19_Test()
+        public void checkValueEmployeeUTCID13_Test()
         {
             bool add_Result = _functionTest.checkValueEmployee(
                     _listInputAccountNames[0],
@@ -407,7 +302,7 @@ namespace UnitTest_GaraOto
             Assert.That(add_Result, Is.EqualTo(_listOuputs[1]));
         }
         [Test]
-        public void checkValueEmployeeUTCID20_Test()
+        public void checkValueEmployeeUTCID14_Test()
         {
             bool add_Result = _functionTest.checkValueEmployee(
                     _listInputAccountNames[0],
@@ -423,42 +318,26 @@ namespace UnitTest_GaraOto
             Assert.That(add_Result, Is.EqualTo(_listOuputs[1]));
         }
         [Test]
-        public void checkValueEmployeeUTCID21_Test()
+        public void checkValueEmployeeUTCID15_Test()
         {
             bool add_Result = _functionTest.checkValueEmployee(
-                   _listInputAccountNames[0],
-                   _listInputNames[0],
-                   _listInputRoles[0],
-                   _listInputBirthDates[0],
-                   _listInputCMNDs[3],
-                   _listInputPhones[0],
-                   _listInputAddresses[0],
-                   _listUsers,
-                   _listUsersInfo
-               );
+                _listInputAccountNames[0],
+                    _listInputNames[0],
+                    _listInputRoles[0],
+                    _listInputBirthDates[0],
+                    _listInputCMNDs[3],
+                    _listInputPhones[0],
+                    _listInputAddresses[0],
+                    _listUsers,
+                    _listUsersInfo
+                );
             Assert.That(add_Result, Is.EqualTo(_listOuputs[1]));
         }
         [Test]
-        public void checkValueEmployeeUTCID22_Test()
+        public void checkValueEmployeeUTCID16_Test()
         {
             bool add_Result = _functionTest.checkValueEmployee(
-                   _listInputAccountNames[0],
-                   _listInputNames[0],
-                   _listInputRoles[0],
-                   _listInputBirthDates[0],
-                   _listInputCMNDs[4],
-                   _listInputPhones[0],
-                   _listInputAddresses[0],
-                   _listUsers,
-                   _listUsersInfo
-               );
-            Assert.That(add_Result, Is.EqualTo(_listOuputs[1]));
-        }
-        [Test]
-        public void checkValueEmployeeUTCID23_Test()
-        {
-            bool add_Result = _functionTest.checkValueEmployee(
-                    _listInputAccountNames[0],
+                _listInputAccountNames[0],
                     _listInputNames[0],
                     _listInputRoles[0],
                     _listInputBirthDates[0],
@@ -471,10 +350,10 @@ namespace UnitTest_GaraOto
             Assert.That(add_Result, Is.EqualTo(_listOuputs[1]));
         }
         [Test]
-        public void checkValueEmployeeUTCID24_Test()
+        public void checkValueEmployeeUTCID17_Test()
         {
             bool add_Result = _functionTest.checkValueEmployee(
-                    _listInputAccountNames[0],
+                _listInputAccountNames[0],
                     _listInputNames[0],
                     _listInputRoles[0],
                     _listInputBirthDates[0],
@@ -487,48 +366,16 @@ namespace UnitTest_GaraOto
             Assert.That(add_Result, Is.EqualTo(_listOuputs[1]));
         }
         [Test]
-        public void checkValueEmployeeUTCID25_Test()
+        public void checkValueEmployeeUTCID18_Test()
         {
             bool add_Result = _functionTest.checkValueEmployee(
-                    _listInputAccountNames[0],
-                    _listInputNames[0],
-                    _listInputRoles[0],
-                    _listInputBirthDates[0],
-                    _listInputCMNDs[0],
-                    _listInputPhones[3],
-                    _listInputAddresses[0],
-                    _listUsers,
-                    _listUsersInfo
-                );
-            Assert.That(add_Result, Is.EqualTo(_listOuputs[1]));
-        }
-        [Test]
-        public void checkValueEmployeeUTCID26_Test()
-        {
-            bool add_Result = _functionTest.checkValueEmployee(
-                    _listInputAccountNames[0],
+                _listInputAccountNames[0],
                     _listInputNames[0],
                     _listInputRoles[0],
                     _listInputBirthDates[0],
                     _listInputCMNDs[0],
                     _listInputPhones[0],
                     _listInputAddresses[1],
-                    _listUsers,
-                    _listUsersInfo
-                );
-            Assert.That(add_Result, Is.EqualTo(_listOuputs[1]));
-        }
-        [Test]
-        public void checkValueEmployeeUTCID27_Test()
-        {
-            bool add_Result = _functionTest.checkValueEmployee(
-                    _listInputAccountNames[0],
-                    _listInputNames[0],
-                    _listInputRoles[0],
-                    _listInputBirthDates[0],
-                    _listInputCMNDs[0],
-                    _listInputPhones[0],
-                    _listInputAddresses[2],
                     _listUsers,
                     _listUsersInfo
                 );

@@ -8,6 +8,19 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("log4net.dll")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("log4net.xml")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("microsoft.diagnostics.tracing.eventsource.dll")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("microsoft.diagnostics.tracing.eventsource.xml")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("microsoft.scpnet.dll.config")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("scphost.exe")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("scplogger.log4net.dll")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("scplogger.log4net.etwappender.dll")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("scplogger.log4net.etwappender.dll.config")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("scplogger_readme.txt")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("scpperfcounter.azurecounter.dll")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("scpperfcounter.dll")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("zookeepernet.dll")]
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("model/garaefmodel.context.tt")]
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("model/garaefmodel.tt")]
 

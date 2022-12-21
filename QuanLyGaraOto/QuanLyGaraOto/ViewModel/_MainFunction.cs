@@ -33,8 +33,7 @@ namespace QuanLyGaraOto.ViewModel
             ObservableCollection<CAR_BRAND> list)
 
         {
-            if (name == null) return false;
-            if (string.IsNullOrEmpty(name.Trim()))
+            if (string.IsNullOrEmpty(name))
             {
                 return false;
             }
@@ -48,11 +47,8 @@ namespace QuanLyGaraOto.ViewModel
         public bool checkValueSupplies(string name, string price,
             ObservableCollection<SUPPLIES> list)
         {
-            if (name == null
-                || price == null) return false;
-
-            if (string.IsNullOrEmpty(name.Trim()) 
-                || string.IsNullOrEmpty(price.Trim())){
+            if (string.IsNullOrEmpty(name) 
+                || string.IsNullOrEmpty(price)){
                 return false;
             }
 
@@ -68,12 +64,9 @@ namespace QuanLyGaraOto.ViewModel
         public bool checkValueSupplier(string name, string phone, string email,
             ObservableCollection<SUPPLIER> list)
         {
-            if (name == null 
-                || phone == null 
-                || email == null) return false;
-            if (string.IsNullOrEmpty(name.Trim()) 
-                || string.IsNullOrEmpty(phone.Trim())
-                || string.IsNullOrEmpty(email.Trim())) return false;
+            if (string.IsNullOrEmpty(name) 
+                || string.IsNullOrEmpty(phone)
+                || string.IsNullOrEmpty(email)) return false;
             if (!this._regexPhone.IsMatch(phone) 
                 || !this._regexVietnameseWithNumber.IsMatch(name)
                 || !this._regexEmail.IsMatch(email)) return false;
@@ -86,9 +79,8 @@ namespace QuanLyGaraOto.ViewModel
         public bool checkValueWage(string name, string price,
             ObservableCollection<WAGE> list)
         {
-            if (name == null || price == null) return false;
-            if (string.IsNullOrEmpty(name.Trim())
-                || string.IsNullOrEmpty(price.Trim())) return false;
+            if (string.IsNullOrEmpty(name)
+                || string.IsNullOrEmpty(price)) return false;
 
             if (!this._regexPhone.IsMatch(price)
                 || !this._regexVietnameseWithNumber.IsMatch(name)) return false;
@@ -111,7 +103,7 @@ namespace QuanLyGaraOto.ViewModel
                 return false;
             }
 
-            if (!_regexPhone.IsMatch(phone) && !string.IsNullOrEmpty(phone)) return false;
+            if (!_regexPhone.IsMatch(phone)) return false;
             
             DateTime result = DateTime.Now;
             if (!DateTime.TryParse(receptionDate, out result)) return false;
@@ -131,20 +123,31 @@ namespace QuanLyGaraOto.ViewModel
                 || string.IsNullOrEmpty(birthDate)
                 || string.IsNullOrEmpty(cmnd)
                 || string.IsNullOrEmpty(phone)
-                || string.IsNullOrEmpty(address)) return false;
+                || string.IsNullOrEmpty(address)
+                )
+            {
+                return false;
+            }
 
             if (!this._regexPhone.IsMatch(phone) 
                 || !this._regexText.IsMatch(accountName)
                 || !this._regexVietnamese.IsMatch(name)
                 || !this._regexVietnameseWithNumber.IsMatch(role)
-                || !this._regexPhone.IsMatch(cmnd)) return false;
+                || !this._regexText.IsMatch(cmnd)
+                )
+            {
+                return false;
+            }
 
             UnicodeConvert unicode = new UnicodeConvert();
 
             DateTime result = DateTime.Today;
             if (!DateTime.TryParse(birthDate, out result)) return false;
-            if (DateTime.Compare(result, DateTime.Today.AddDays(-18 * 365)) > 0
-                || DateTime.Compare(result, DateTime.Today) >= 0) return false;
+            if (DateTime.Compare(result, DateTime.Today.AddYears(-18)) > 0
+                || DateTime.Compare(result, DateTime.Today) >= 0)
+            {
+                return false;
+            }
 
             foreach (USER item in listUser)
             {

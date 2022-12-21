@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "dBA4/BelKcwI7dtg7XkMq6NHdubJmRA2FRv0rO4pbxiAV1gU2nDT3sZISHQocmTP/VxSdvRV9csu0UYMFrGGnQ==",
+  "dgSpecHash": "5/reIVs0UDKNMwSNaFAzU2NhYvXilquyRMXVki1i6Ob26gSMBQhNANOKoHKJMrcmog3k7bxTe0SD77nw68Gp5w==",
   "success": true,
   "projectFilePath": "D:\\Schools\\Software_Testing\\quanlyGaraOto\\QuanLyGaraOto\\UnitTest_GaraOto\\UnitTest_GaraOto.csproj",
   "expectedPackageFiles": [
@@ -16,6 +16,7 @@
     "C:\\Users\\thanh\\.nuget\\packages\\nuget.frameworks\\5.0.0\\nuget.frameworks.5.0.0.nupkg.sha512",
     "C:\\Users\\thanh\\.nuget\\packages\\nunit\\3.13.2\\nunit.3.13.2.nupkg.sha512",
     "C:\\Users\\thanh\\.nuget\\packages\\nunit3testadapter\\4.0.0\\nunit3testadapter.4.0.0.nupkg.sha512",
+    "C:\\Users\\thanh\\.nuget\\packages\\opencover\\4.7.1221\\opencover.4.7.1221.nupkg.sha512",
     "C:\\Users\\thanh\\.nuget\\packages\\system.collections\\4.0.11\\system.collections.4.0.11.nupkg.sha512",
     "C:\\Users\\thanh\\.nuget\\packages\\system.diagnostics.debug\\4.0.11\\system.diagnostics.debug.4.0.11.nupkg.sha512",
     "C:\\Users\\thanh\\.nuget\\packages\\system.diagnostics.tools\\4.0.1\\system.diagnostics.tools.4.0.1.nupkg.sha512",

@@ -31,7 +31,6 @@ namespace UnitTest_GaraOto
                 "Vinfast",
                 "KIA",
                 "&#%",
-                "",
                 null,
             };
             _listExpectedOutputs = new List<bool>() { 
@@ -72,15 +71,6 @@ namespace UnitTest_GaraOto
         {
             bool add_Result = _functionTest.checkValueBrand(
                     _listInputNames[3],
-                    _listCarBrands
-                );
-            Assert.That(add_Result, Is.EqualTo(_listExpectedOutputs[1]));
-        }
-        [Test]
-        public void checkValueBrandUTCID05_Test()
-        {
-            bool add_Result = _functionTest.checkValueBrand(
-                    _listInputNames[4],
                     _listCarBrands
                 );
             Assert.That(add_Result, Is.EqualTo(_listExpectedOutputs[1]));

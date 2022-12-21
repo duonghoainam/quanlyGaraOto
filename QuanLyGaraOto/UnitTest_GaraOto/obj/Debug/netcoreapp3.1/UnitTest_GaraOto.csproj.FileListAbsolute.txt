@@ -351,3 +351,16 @@ D:\UIT\Testing\da\quanlyGaraOto\QuanLyGaraOto\UnitTest_GaraOto\obj\Debug\netcore
 D:\UIT\Testing\da\quanlyGaraOto\QuanLyGaraOto\UnitTest_GaraOto\obj\Debug\netcoreapp3.1\UnitTest_GaraOto.dll
 D:\UIT\Testing\da\quanlyGaraOto\QuanLyGaraOto\UnitTest_GaraOto\obj\Debug\netcoreapp3.1\UnitTest_GaraOto.pdb
 D:\UIT\Testing\da\quanlyGaraOto\QuanLyGaraOto\UnitTest_GaraOto\obj\Debug\netcoreapp3.1\UnitTest_GaraOto.genruntimeconfig.cache
+D:\Schools\Software_Testing\quanlyGaraOto\QuanLyGaraOto\UnitTest_GaraOto\bin\Debug\netcoreapp3.1\log4net.dll
+D:\Schools\Software_Testing\quanlyGaraOto\QuanLyGaraOto\UnitTest_GaraOto\bin\Debug\netcoreapp3.1\log4net.xml
+D:\Schools\Software_Testing\quanlyGaraOto\QuanLyGaraOto\UnitTest_GaraOto\bin\Debug\netcoreapp3.1\Microsoft.Diagnostics.Tracing.EventSource.dll
+D:\Schools\Software_Testing\quanlyGaraOto\QuanLyGaraOto\UnitTest_GaraOto\bin\Debug\netcoreapp3.1\Microsoft.Diagnostics.Tracing.EventSource.xml
+D:\Schools\Software_Testing\quanlyGaraOto\QuanLyGaraOto\UnitTest_GaraOto\bin\Debug\netcoreapp3.1\Microsoft.SCPNet.dll.config
+D:\Schools\Software_Testing\quanlyGaraOto\QuanLyGaraOto\UnitTest_GaraOto\bin\Debug\netcoreapp3.1\SCPHost.exe
+D:\Schools\Software_Testing\quanlyGaraOto\QuanLyGaraOto\UnitTest_GaraOto\bin\Debug\netcoreapp3.1\SCPLogger.Log4net.dll
+D:\Schools\Software_Testing\quanlyGaraOto\QuanLyGaraOto\UnitTest_GaraOto\bin\Debug\netcoreapp3.1\SCPLogger.Log4net.EtwAppender.dll
+D:\Schools\Software_Testing\quanlyGaraOto\QuanLyGaraOto\UnitTest_GaraOto\bin\Debug\netcoreapp3.1\SCPLogger.Log4net.EtwAppender.dll.config
+D:\Schools\Software_Testing\quanlyGaraOto\QuanLyGaraOto\UnitTest_GaraOto\bin\Debug\netcoreapp3.1\SCPLogger_ReadMe.txt
+D:\Schools\Software_Testing\quanlyGaraOto\QuanLyGaraOto\UnitTest_GaraOto\bin\Debug\netcoreapp3.1\SCPPerfCounter.AzureCounter.dll
+D:\Schools\Software_Testing\quanlyGaraOto\QuanLyGaraOto\UnitTest_GaraOto\bin\Debug\netcoreapp3.1\SCPPerfCounter.dll
+D:\Schools\Software_Testing\quanlyGaraOto\QuanLyGaraOto\UnitTest_GaraOto\bin\Debug\netcoreapp3.1\ZooKeeperNet.dll
