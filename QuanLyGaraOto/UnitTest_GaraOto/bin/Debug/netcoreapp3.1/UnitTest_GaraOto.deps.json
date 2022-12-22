@@ -11,6 +11,7 @@
           "Microsoft.NET.Test.Sdk": "17.0.0",
           "NUnit": "3.13.2",
           "NUnit3TestAdapter": "4.0.0",
+          "OpenCover": "4.7.1221",
           "QuanLyGaraOto": "1.0.0"
         },
         "runtime": {
@@ -357,6 +358,7 @@
         }
       },
       "NUnit3TestAdapter/4.0.0": {},
+      "OpenCover/4.7.1221": {},
       "System.Collections/4.0.11": {
         "dependencies": {
           "Microsoft.NETCore.Platforms": "1.1.0",
@@ -801,6 +803,13 @@
       "sha512": "sha512-5gCkytgQWL93M5s9Rnl4CfSUhn95VsuMVLYjmZe8K7dNRF7kzrBMPsBTyLNCga5qLW7RM/o591J+HVrV1QMaVQ==",
       "path": "nunit3testadapter/4.0.0",
       "hashPath": "nunit3testadapter.4.0.0.nupkg.sha512"
+    },
+    "OpenCover/4.7.1221": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-XZsMfTpbGnqLWCQjOeLlbDUU0lazJHbyEX52d7oRSuQX7Ve+23nfk4TF/F61hS382IEHB8WvUwkPB2IIA9WqEQ==",
+      "path": "opencover/4.7.1221",
+      "hashPath": "opencover.4.7.1221.nupkg.sha512"
     },
     "System.Collections/4.0.11": {
       "type": "package",

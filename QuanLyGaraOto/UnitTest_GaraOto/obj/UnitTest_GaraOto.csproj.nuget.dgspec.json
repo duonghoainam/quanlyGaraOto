@@ -9,22 +9,11 @@
         "projectUniqueName": "D:\\Schools\\Software_Testing\\quanlyGaraOto\\QuanLyGaraOto\\QuanLyGaraOto\\QuanLyGaraOto.csproj",
         "projectName": "QuanLyGaraOto",
         "projectPath": "D:\\Schools\\Software_Testing\\quanlyGaraOto\\QuanLyGaraOto\\QuanLyGaraOto\\QuanLyGaraOto.csproj",
-        "packagesPath": "C:\\Users\\thanh\\.nuget\\packages\\",
-        "projectStyle": "PackagesConfig",
-        "configFilePaths": [
-          "C:\\Users\\thanh\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
-        ],
-        "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "https://api.nuget.org/v3/index.json": {}
-        },
         "frameworks": {
           "net472": {
             "projectReferences": {}
           }
-        },
-        "packagesConfigPath": "D:\\Schools\\Software_Testing\\quanlyGaraOto\\QuanLyGaraOto\\QuanLyGaraOto\\packages.config"
+        }
       },
       "frameworks": {
         "net472": {}
